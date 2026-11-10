@@ -2,7 +2,7 @@
 
 > 기준: DCSS 0.34.1 · [아이템 목록으로](index.md)
 >
-> **작성 진행 상황**: Maces & Flails, Short Blades, Long Blades, Axes, Polearms 작성 완료. Staves, Ranged Weapons는 다음 실행에서 이어서 작성한다(아래 [전체 목록](#전체-목록)의 "상세" 칸 참고).
+> **작성 진행 상황**: 54종 전부 작성 완료.
 
 이름·수치·고유 효과가 정해진 무기 아티팩트를 정리한다. 원형 무기의 기본 수치와 전투 공식은 [무기 문서](weapons.md), 브랜드 효과는 [브랜드·에고](brands-egos.md#무기-브랜드), 아티팩트 속성(Str, rF 등)의 의미는 [아티팩트 속성](artefact-properties.md) 참고. 이 문서는 **원형과 달라진 점과 고유 효과** 위주로 쓴다.
 
@@ -65,17 +65,17 @@
 | | [trishula "Condemnation"](#trishula-condemnation) | trishula | 작성 |
 | | [Lochaber axe](#lochaber-axe) | bardiche | 작성 |
 | | [Force Lance](#force-lance) | spear | 작성 |
-| Staves | staff of Olgreb | (magical staff) | 예정 |
-| | Elemental Staff | (magical staff) | 예정 |
-| | Majin-Bo | (magical staff) | 예정 |
-| | lajatang of Order | lajatang | 예정 |
-| | staff of the Meek | quarterstaff | 예정 |
-| Ranged Weapons | greatsling "Punk" | sling | 예정 |
-| | longbow "Zephyr" | longbow | 예정 |
-| | storm bow | longbow | 예정 |
-| | arbalest "Damnation" | arbalest | 예정 |
-| | heavy crossbow "Sniper" | triple crossbow | 예정 |
-| | hand cannon "Mule" | hand cannon | 예정 |
+| Staves | [staff of Olgreb](#staff-of-olgreb) | (magical staff) | 작성 |
+| | [Elemental Staff](#elemental-staff) | (magical staff) | 작성 |
+| | [Majin-Bo](#majin-bo) | (magical staff) | 작성 |
+| | [lajatang of Order](#lajatang-of-order) | lajatang | 작성 |
+| | [staff of the Meek](#staff-of-the-meek) | quarterstaff | 작성 |
+| Ranged Weapons | [greatsling "Punk"](#greatsling-punk) | sling | 작성 |
+| | [longbow "Zephyr"](#longbow-zephyr) | longbow | 작성 |
+| | [storm bow](#storm-bow) | longbow | 작성 |
+| | [arbalest "Damnation"](#arbalest-damnation) | arbalest | 작성 |
+| | [heavy crossbow "Sniper"](#heavy-crossbow-sniper) | triple crossbow | 작성 |
+| | [hand cannon "Mule"](#hand-cannon-mule) | hand cannon | 작성 |
 
 ---
 
@@ -452,9 +452,94 @@
 - 초반 언랜드(`MAX_LEVEL` 11).
 
 ## Staves
-(다음 실행에서 작성)
+
+### 수치표
+| 언랜드 | 원형 | 인챈트 | 데미지 | 명중 | 딜레이 | 최소 딜레이 (필요 스킬) | 브랜드 | 손 |
+|---|---|---|---|---|---|---|---|---|
+| staff of Olgreb | 마법 지팡이 | +9 | 5 | +5 | 1.2 | 0.6 (12) | 없음 | 한손 |
+| Elemental Staff | 마법 지팡이 | +3 | 5 | +5 | 1.2 | 0.6 (12) | 없음 | 한손 |
+| Majin-Bo | 마법 지팡이 | +6 | **11 (+6)** | **+1 (−4)** | 1.2 | 0.6 (12) | Vampirism | 한손 |
+| lajatang of Order | lajatang | +7 | 16 | −3 | 1.4 | 0.7 (14) | 없음 | 항상 양손 |
+| staff of the Meek | quarterstaff | +7 | 10 | +3 | 1.3 | 0.6 (14) | Protection | 항상 양손 |
+
+- 위 셋은 [마법 지팡이](staves.md)의 무기 수치(데미지 5, 명중 +5, 딜레이 1.2, 한손)를 원형으로 쓰는 **무기 아이템**이다. 일반 마법 지팡이와 달리 인챈트가 있고, 일반 지팡이의 근접 추가 데미지 공식([지팡이 4.2절](staves.md#42-추가-데미지))은 적용되지 않으며 각자 고유 효과를 쓴다.
+- 이 셋은 **Wizardly 아이템**(Trog이 싫어함)이다.
+- → [무기 수치표](weapons.md#staves)
+
+### staff of Olgreb
+- **Alchemy 마법 강화 +1단계**(Attunement 에고가 있으면 +2). → [지팡이의 마법 강화](staves.md#2-마법-강화-enhancer)
+- **rPois∞**: 독 면역.
+- **Envenom**: 명중할 때 `Evocations/10` 확률(Evocations 10 이상이면 항상)로 추가 Poison 데미지 `random2(Evocations × 1.5)` (Evocations 10에서 0~17, 27에서 0~49). **AC를 무시**하고, rPois로 감소한다(70%만 저항 가능한 Poison). 데미지가 들어가면 추가로 중독 2단계(강제).
+- **능력(`a`) 메뉴로 발동: Olgreb's Toxic Radiance** — MP 4, 위력 `5 + 5 × Evocations`(Evocations 19에서 그 마법의 Power cap 100에 도달). 발동할 때마다 Wizardly 행위로 처리된다. 마법 효과는 [Olgreb's Toxic Radiance](../spells/alchemy.md#olgrebs-toxic-radiance) 참고.
+  - Ru의 Sacrifice Artifice가 있으면 발동할 수 없다.
+- 몬스터 장비: Arachne의 staff of alchemy가 1/100 확률로 이 언랜드로 바뀐다.
+
+### Elemental Staff
+- **Fire, Ice, Earth, Air 마법 강화 각 +1단계**(Attunement 에고가 있으면 +2). **rF +1, rC +1, rElec, AC +3.**
+- **원소 타격**: 명중할 때(죽지 않았을 때) `Evocations/27` 확률 판정을 **두 번** 해서 하나라도 성공하면 발동. 즉 발동 확률 = `1 − (1 − Evocations/27)²` (Evocations 5에서 34%, 10에서 60%, 15에서 80%, 20에서 93%, 27에서 100%).
+  - 원소는 Fire / Cold / Electricity / Earth(물리) 중 무작위(각 1/4).
+  - 데미지 `10 + random2(15)` (10~24). **Fire·Cold는 ×1.25.** 대상의 AC를 적용(Electricity는 AC 절반), 해당 저항으로 감소.
+
+### Majin-Bo
+- 원형 마법 지팡이(이름 표기는 "bo"). 기본 데미지 +6, 명중 −4. 브랜드 Vampirism. **Int +6, 최대 MP +6.**
+- **Spellvamp**:
+  - **주문을 쓸 때 MP와 함께 같은 양의 HP를 소모한다**(주문 레벨만큼). 현재 HP − 1을 넘지 않는다. Death's Door 중에는 HP를 소모하지 않는다.
+  - **주문 데미지로 살아 있는 대상을 다치게 하면 `1 ~ 데미지` HP 회복**(대상의 rN으로 감소). HP가 가득 차 있거나 Death's Door 중이면 회복하지 않는다. 근접 공격의 Vampirism 브랜드는 별개로 작동한다.
+  - 주문을 쓰는 것이 **Unholy(불경) 행위**로 취급된다(선한 신이 싫어함).
+- 장착하면 가끔 대사를 한다(효과 없음).
+- **코드에서 찾은 문제(미확인 재현)**: 주문이 비용 지불 후 취소(abort)되면 HP를 돌려주는데, Majin-Bo와 Death 에고 방어구를 **함께** 쓰고 있으면 두 출처의 HP 비용 합계를 **두 번** 돌려준다(`spl-cast.cc`의 `refund_hp(hp_cost)` 중복 호출, 상한 검사 없음). 이론상 취소할 때마다 HP를 얻는다(0.34.1).
+
+### lajatang of Order
+- 브랜드 없음, **rMut**(돌연변이 저항).
+- **Silver**: 명중할 때마다(죽지 않았을 때) 추가 데미지.
+  - Chaotic한 대상, 또는 변신 중인 플레이어: **데미지 × 3/4** 추가.
+  - 돌연변이가 있는 플레이어: 돌연변이 수 × 5% (최대 75%) 추가.
+  - 그 밖의 대상: `1 + random2(데미지)/3` 추가.
+
+### staff of the Meek
+- 브랜드 Protection(적을 맞히면 AC +7, 3~4턴).
+- **Meekguard**: Protection 효과가 켜져 있는 동안, **현재 HP가 낮을수록 AC가 추가로 오른다.** 추가 AC = `min(max(0, (55 − 현재HP)/4), 7)`.
+  - HP 27 이하 +7, HP 35 +5, HP 43 +3, HP 51 +1, HP 55 이상 0.
+- 초반 언랜드(`MAX_LEVEL` 11).
 
 ## Ranged Weapons
-(다음 실행에서 작성)
 
-> 출처: art-data.txt, art-func.h, item-prop.cc, fight.cc, attack.cc, melee-attack.cc, areas.cc, player.cc, monster.cc, spl-damage.cc, spl-goditem.cc, beam.cc, cloud.cc, mon-gear.cc, mon-ench.cc, makeitem.cc, artefact.cc (0.34.1)
+### 수치표
+| 언랜드 | 원형 | 인챈트 | 데미지 | 명중 | 딜레이 | 최소 딜레이 (필요 스킬) | 브랜드 |
+|---|---|---|---|---|---|---|---|
+| greatsling "Punk" | sling | +3 | **10 (+3)** | +0 | 1.4 | 0.7 (14) | Acid |
+| longbow "Zephyr" | longbow | +8 | 14 | +0 | 1.7 | 0.7 (20) | Speed |
+| storm bow | longbow | +8 | 14 | +0 | 1.7 | 0.7 (20) | Electrocution |
+| arbalest "Damnation" | arbalest | +6 | 16 | −2 | 1.9 | 1.0 (18) | 없음 |
+| heavy crossbow "Sniper" | triple crossbow | **+27** | 23 | (항상 명중) | **2.5 (+0.2)** | 1.1 (28)\* | Heavy |
+| hand cannon "Mule" | hand cannon | +7 | 16 | +3 | 1.9 | 1.0 (18) | Flaming |
+
+- 크로스보우류(arbalest, triple crossbow, hand cannon)는 최소 딜레이 1.0 규칙을 따른다. → [공격 속도](weapons.md#42-최소-딜레이-규칙)
+- \* Sniper는 필요 스킬이 28이라 스킬 27에서 1.1~1.2턴. 여기에 Heavy ×1.5.
+- → [무기 수치표](weapons.md#ranged-weapons)
+
+### greatsling "Punk"
+- 원형 sling(이름 표기는 "greatsling"). 기본 데미지 +3. 브랜드 **Acid**(언랜드 전용, 2d4 Acid 데미지 + Corrosion → [그 밖의 브랜드](brands-egos.md#그-밖의-브랜드)). **rCorr.**
+
+### longbow "Zephyr"
+- 브랜드 Speed, **Dex +3, SInv.** 고유 효과는 없다.
+
+### storm bow
+- 브랜드 Electrocution.
+- **Penet**: 쏜 탄이 **대상을 관통**해서 최대 사거리까지 경로 위의 모든 대상을 맞힌다(Penetration 브랜드, javelin과 같은 관통 판정).
+
+### arbalest "Damnation"
+- 브랜드 없음(대신 고유 효과), **Evil 아이템**. 쏘는 탄 이름이 "damnation bolt"로 바뀐다.
+- **Damnation**: 탄이 맞으면 **damnation 폭발**, 데미지 **2d14**, **AC 무시.** damnation 저항이 있는 몬스터는 피해가 없다. 사용자는 폭발에 맞지 않는다(`safe_to_user`). 폭발 범위는 (미확인).
+- 명중시킬 때마다 Evil 행위로 처리된다.
+
+### heavy crossbow "Sniper"
+- 원형 triple crossbow(이름 표기는 "heavy crossbow"). 딜레이 +0.2. 브랜드 Heavy, **인챈트 +27**, **SInv.**
+- **Acc+∞: 항상 명중한다.** 명중 판정 자체를 건너뛰므로 대상의 EV와 SH(막기)를 모두 무시한다.
+
+### hand cannon "Mule"
+- 브랜드 Flaming, **rF +1.**
+- 모든 hand cannon처럼 쏠 때 사용자 옆에 연기(magic trail) 구름이 생긴다.
+- **Backblast**: 쏠 때 **1/2 확률로 사용자가 쏜 방향 반대쪽으로 1칸 밀려난다**(밀려날 칸이 막혀 있거나 밀려나지 않는 상태면 무시). 밀려날 칸에 함정 등이 있으면 쏘기 전에 경고가 나온다.
+
+> 출처: art-data.txt, art-func.h, item-prop.cc, fight.cc, attack.cc, melee-attack.cc, areas.cc, player.cc, player-act.cc, player-reacts.cc, monster.cc, spl-damage.cc, spl-goditem.cc, spl-transloc.cc, spl-cast.cc, death-curse.cc, quiver.cc, throw.cc, ability.cc, beam.cc, cloud.cc, ouch.cc, fineff.cc, mon-death.cc, mon-gear.cc, mon-ench.cc, mon-place.cc, makeitem.cc, artefact.cc, acquire.cc, god-item.cc, dat/descript/unrand.txt (0.34.1)
