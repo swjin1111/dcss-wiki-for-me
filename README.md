@@ -5,6 +5,7 @@ Dungeon Crawl Stone Soup **stable 0.34.1** 소스코드를 직접 읽고 정리�
 
 - 기준 소스: [crawl/crawl](https://github.com/crawl/crawl) 태그 `0.34.1` (커밋 `1eebc1a`)
 - 작성 규칙: [CONVENTIONS.md](CONVENTIONS.md)
+- 작업 계획: [ROADMAP.md](ROADMAP.md)
 
 ## 목차
 
