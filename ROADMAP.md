@@ -8,7 +8,7 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 - [ ] 아이템 (아래 순서)
   1. [x] 공통 시스템: `index.md`(인챈트·감정·생성·아티팩트 개요), `brands-egos.md`, `artefact-properties.md`
   2. [x] 기본 장비: `weapons.md`(투척 포함, 전투 시스템 로직 상세), `armour.md`(AC·EV·SH·방해도 로직 상세)
-  3. 언랜드의 기반이 되는 나머지 장비: `jewellery.md`, `staves.md`
+  3. 언랜드의 기반이 되는 나머지 장비: [x] `jewellery.md`, [ ] `staves.md`
   4. 언랜드 아티팩트: `unrands-weapons.md`, `unrands-armour.md`, `unrands-jewellery.md` (기본 수치는 2~3단계 문서로 링크하고, 달라진 점과 고유 효과 위주로 작성)
   5. 소모품·발동형: `potions.md`, `scrolls.md`, `wands-evokers.md`
   6. 나머지: `talismans.md`, `special-items.md`
@@ -40,3 +40,7 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 코드를 읽다가 찾았지만 아직 해당 문서가 없어서 적어두는 것.
 
 - **Coglin의 Warmup Strikes**(`MUT_WARMUP_STRIKES`): 회전 수치가 낮을 때의 데미지 감소(0일 때 2/3)가 **원거리 공격에만 적용되고 근접 공격에는 적용되지 않는다.** `melee-attack.cc`의 `player_apply_final_multipliers`에서 `apply_rev_penalty(damage);`의 반환값을 버리기 때문(0.34.1). → 종족 문서
+- **Sticky Flame 종료 판정 버그**: `player.cc`의 `dec_sticky_flame_player`에서 `you.duration[DUR_STICKY_FLAME == 0]`로 잘못 쓰여 있어, 실제로는 `you.duration[0]`(= `DUR_INVIS`, 투명 상태)를 검사한다. 그 결과 (1) 지속 시간이 자연히 끝날 때는 종료 메시지와 정리(`end_sticky_flame_player`)가 실행되지 않고, (2) **플레이어가 투명 상태이면 Sticky Flame이 다음 틱에 바로 꺼진다**(0.34.1). → 상태이상 문서, Alchemy의 Sticky Flame 항목(2단계)
+- **주문 볼트에 대한 플레이어의 막기 공식**은 근접·투사체 공격과 다르다: `beam.cc`에서 `random2(명중 × 1.3) < shield_bonus()`로 판정(몬스터 HD가 아니라 볼트의 명중치 사용). 방어구 문서 5.2절은 근접·투사체 기준. → 상태이상 또는 2단계에서 방어구 문서 보충 검토
+- **무작위 아이템 종류 가중치 합**: `makeitem.cc` 주석은 "Total weight: 1660"이지만 실제 합은 1661(사소함). → 아이템 개요 보충 시
+

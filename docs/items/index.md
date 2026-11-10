@@ -13,7 +13,8 @@
 | 방어구 (AC·EV·SH·방해도, 몬스터 공격과 방어) | [armour.md](armour.md) | 작성 |
 | 포션 / 스크롤 | `potions.md`, `scrolls.md` | 예정 |
 | 완드·발동 아이템 (Evoker) | `wands-evokers.md` | 예정 |
-| 반지·목걸이 / 지팡이(Staff) / 탈리스만 | `jewellery.md`, `staves.md`, `talismans.md` | 예정 |
+| 반지·목걸이 (Jewellery) | [jewellery.md](jewellery.md) | 작성 |
+| 지팡이(Staff) / 탈리스만 | `staves.md`, `talismans.md` | 예정 |
 | 특수 아이템 (룬, Gem, Orb of Zot, Gizmo, Bauble) | `special-items.md` | 예정 |
 
 현재 버전에서 원거리 무기는 탄약을 쓰지 않는다. 화살·볼트·탄환 같은 탄약 아이템은 세이브 호환용으로만 남아 있고 생성되지 않는다.
