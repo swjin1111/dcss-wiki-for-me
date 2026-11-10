@@ -5,7 +5,13 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 
 - [x] 마법 — Alchemy
 - [ ] 마법 — 나머지 학파
-- [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 아이템, 적성, 능력치, 돌연변이 & 파멸
+- [ ] 아이템 (아래 순서)
+  1. [x] 공통 시스템: `index.md`(인챈트·감정·생성·아티팩트 개요), `brands-egos.md`, `artefact-properties.md`
+  2. 언랜드 아티팩트: `unrands-weapons.md`, `unrands-armour.md`, `unrands-jewellery.md`
+  3. 기본 장비: `weapons.md`(투척 포함), `armour.md`
+  4. 소모품·발동형: `potions.md`, `scrolls.md`, `wands-evokers.md`
+  5. 나머지: `jewellery.md`, `staves.md`, `talismans.md`, `special-items.md`
+- [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 적성, 능력치, 돌연변이 & 파멸
 - [ ] 후순위: 능력, 상태이상, 보조 공격, 은신 & 암습
 
 ## 2단계: 교차 분석 업데이트 (주요 카테고리 완성 후)
