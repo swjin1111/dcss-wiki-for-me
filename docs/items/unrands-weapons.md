@@ -2,7 +2,7 @@
 
 > 기준: DCSS 0.34.1 · [아이템 목록으로](index.md)
 >
-> **작성 진행 상황**: Maces & Flails, Short Blades, Long Blades, Axes 작성 완료. Polearms, Staves, Ranged Weapons는 다음 실행에서 이어서 작성한다(아래 [전체 목록](#전체-목록)의 "상세" 칸 참고).
+> **작성 진행 상황**: Maces & Flails, Short Blades, Long Blades, Axes, Polearms 작성 완료. Staves, Ranged Weapons는 다음 실행에서 이어서 작성한다(아래 [전체 목록](#전체-목록)의 "상세" 칸 참고).
 
 이름·수치·고유 효과가 정해진 무기 아티팩트를 정리한다. 원형 무기의 기본 수치와 전투 공식은 [무기 문서](weapons.md), 브랜드 효과는 [브랜드·에고](brands-egos.md#무기-브랜드), 아티팩트 속성(Str, rF 등)의 의미는 [아티팩트 속성](artefact-properties.md) 참고. 이 문서는 **원형과 달라진 점과 고유 효과** 위주로 쓴다.
 
@@ -55,16 +55,16 @@
 | | [woodcutter's axe](#woodcutters-axe) | battleaxe | 작성 |
 | | [consecrated labrys](#consecrated-labrys) | broad axe | 작성 |
 | | [Axe of Woe](#axe-of-woe) (nogen) | executioner's axe | 작성 |
-| Polearms | glaive of Prune | glaive | 예정 |
-| | scythe of Curses | halberd | 예정 |
-| | scythe "Finisher" | halberd | 예정 |
-| | glaive of the Guard | glaive | 예정 |
-| | trident of the Octopus King | trident | 예정 |
-| | lance "Wyrmbane" | spear | 예정 |
-| | demon trident "Rift" | demon trident | 예정 |
-| | trishula "Condemnation" | trishula | 예정 |
-| | Lochaber axe | bardiche | 예정 |
-| | Force Lance | spear | 예정 |
+| Polearms | [glaive of Prune](#glaive-of-prune) | glaive | 작성 |
+| | [scythe of Curses](#scythe-of-curses) | halberd | 작성 |
+| | [scythe "Finisher"](#scythe-finisher) | halberd | 작성 |
+| | [glaive of the Guard](#glaive-of-the-guard) | glaive | 작성 |
+| | [trident of the Octopus King](#trident-of-the-octopus-king) | trident | 작성 |
+| | [lance "Wyrmbane"](#lance-wyrmbane) | spear | 작성 |
+| | [demon trident "Rift"](#demon-trident-rift) | demon trident | 작성 |
+| | [trishula "Condemnation"](#trishula-condemnation) | trishula | 작성 |
+| | [Lochaber axe](#lochaber-axe) | bardiche | 작성 |
+| | [Force Lance](#force-lance) | spear | 작성 |
 | Staves | staff of Olgreb | (magical staff) | 예정 |
 | | Elemental Staff | (magical staff) | 예정 |
 | | Majin-Bo | (magical staff) | 예정 |
@@ -366,7 +366,90 @@
 - **항상 명중한다.** 명중한 대상은 **남은 HP만큼 피해를 받아 즉사**한다(휩쓸기 대상 포함). 데미지 표시는 "∞"로 나온다.
 
 ## Polearms
-(다음 실행에서 작성)
+
+### 수치표
+| 언랜드 | 인챈트 | 데미지 | 명중 | 딜레이 | 최소 딜레이 (필요 스킬) | 브랜드 | 사거리 |
+|---|---|---|---|---|---|---|---|
+| glaive of Prune | +12 | 15 | −3 | 1.7 | 0.7 (20) | Freezing | 2 |
+| scythe of Curses | +13 | **14 (+1)** | −3 | **2.0 (+0.5)** | 0.7 (26) | Draining | 2 |
+| scythe "Finisher" | +5 | **14 (+1)** | −3 | **2.0 (+0.5)** | 0.7 (26) | Speed | 2 |
+| glaive of the Guard | +5 | 15 | −3 | 1.7 | 0.7 (20) | Electrocution | 2 |
+| trident of the Octopus King | +8 ~ +24 (변동) | 9 | +1 | 1.3 | 0.6 (14) | Venom | 2 |
+| lance "Wyrmbane" | +8 ~ (성장) | **8 (+2)** | +4 | 1.1 | 0.5 (12) | 없음 | 2 |
+| demon trident "Rift" | +8 | 12 | +1 | 1.3 | 0.6 (14) | Distortion | **3** |
+| trishula "Condemnation" | +8 | 13 | +0 | 1.3 | 0.6 (14) | Holy Wrath | 2 |
+| Lochaber axe | +5 | **19 (+1)** | **−7 (−1)** | **2.0 (+0.1)** | 0.7 (26) | 없음 | 2 |
+| Force Lance | +5 | **8 (+2)** | +4 | 1.1 | 0.5 (12) | Heavy | 2 |
+
+- scythe 2종은 원형 halberd(이름 표기는 "scythe"), Wyrmbane·Force Lance는 원형 spear(이름 표기는 "lance").
+- → [무기 수치표](weapons.md#polearms)
+
+### glaive of Prune
+- 브랜드 Freezing, 인챈트 +12, **Chaotic 아이템**(Zin이 싫어함).
+- **Prune**: 들고 있는 동안 **행동 불능 상태(수면, 마비, 석화)에서 받는 데미지 1/2.** 살아 있는 종족에게만 적용되고, 언데드 종족에게는 효과가 없다.
+  - 석화(petrified) 자체의 데미지 1/2와 곱으로 적용되어, 석화 중에는 1/4이 된다.
+
+### scythe of Curses
+- 브랜드 Draining, 인챈트 +13, **^Drain**(해제 시 Drain).
+- **장착할 때 사용자에게 Death Curse(죽음의 저주)가 한 번 걸린다**(세기 0: 80% 메시지만, 10% 데미지 5, 10% Drain).
+- **명중할 때마다 대상에게 Death Curse**(생물·식물 대상, 그 공격으로 죽지 않았을 때). 세기 = `min(이번 공격 데미지, 27)`.
+- 플레이어가 명중할 때마다 Evil 행위로 처리된다.
+- Death Curse는 아래 효과 중 하나를 세기에 따른 가중치로 고른다.
+  - 메시지만 / Smite(데미지 `5 + random2avg(2×세기, 2)`) / Doom(`10 ~ 15 + 세기×2/3`) / Slow(세기만큼) / Drain(세기에 비례) / Torment
+  - 가중치는 세기 0과 15 사이를 선형 보간한다. 세기별 실제 확률(%):
+
+| 세기 | 메시지 | Smite | Doom | Slow | Drain | Torment |
+|---|---|---|---|---|---|---|
+| 0 | 80 | 10 | 0 | 0 | 10 | 0 |
+| 5 | 54 | 15 | 8 | 5 | 13 | 5 |
+| 10 | 27 | 20 | 16 | 10 | 16 | 10 |
+| 15 | 0 | 25 | 25 | 15 | 20 | 15 |
+| 20 | 0 | **4** | 33 | 20 | 23 | 20 |
+| 27 | 0 | **0** | **18** | 27 | 28 | 27 |
+
+  - **코드 주석과 다른 동작(버그로 보임)**: 주석은 "세기 15를 넘으면 메시지 가중치를 0으로 유지한다"고 하지만, 실제 코드(`death-curse.cc`)는 보간 결과를 0으로 자르지 않아서 **세기 16 이상에서 메시지 가중치가 음수**가 된다. 음수 가중치가 목록 맨 앞에 있어서 그만큼 Smite(그다음 Doom)의 몫이 깎인다. 결과적으로 **이번 공격 데미지가 21 이상이면 Smite가 나오지 않고**, 27에 가까워질수록 Doom도 줄어든다(위 표의 굵은 값). 의도대로라면 세기 27에서 Smite 약 23%다(0.34.1).
+- 몬스터 장비: Grunn이 1/100 확률로 들고 나온다.
+
+### scythe "Finisher"
+- 브랜드 Speed.
+- **Execute**: 몬스터에게 데미지를 주면(그 공격으로 죽지 않았을 때) **`(50 − 대상 HD)/200` 확률로 즉사**(폭발하듯 죽음). HD 1이면 24.5%, HD 10이면 20%, HD 30이면 10%. 플레이어에게는 발동하지 않는다.
+
+### glaive of the Guard
+- 브랜드 Electrocution.
+- **Spectral**: 브랜드와 별개로 **Spectral 브랜드 효과도 함께** 가진다(명중하면 무기의 영체가 나와 같이 싸운다). → [무기 계열 특수 브랜드](brands-egos.md#무기-계열-특수-브랜드)
+
+### trident of the Octopus King
+- 브랜드 Venom, **rElec, rPois**.
+- **인챈트 = `+8 + 2 × (착용 중인 ring of the Octopus King 수)`.** 반지 8개를 모두 끼면 +24. 반지는 언랜드 장신구 문서(예정)에서 다룬다.
+- 초반 언랜드(`MAX_LEVEL` 11).
+
+### lance "Wyrmbane"
+- 브랜드 없음. 기본 데미지 +2. **AC +3, rF +1, rC +1, rPois.**
+- **Slay Drac**: 용족(dragon, draconian 등 `is_dragonkind`) 대상에게 명중하면(그 공격으로 죽지 않았을 때) 추가 데미지 `1 + random2(데미지 × 1.5)`.
+- **성장**: 용족을 죽일 때, 인챈트가 그 대상의 용 레벨(대체로 HD)보다 낮으면 **인챈트 +1.** 즉 인챈트는 지금까지 잡은 가장 강한 용의 레벨까지 오른다. +18에 도달하면 "최대 위력" 메시지가 나온다(코드 주석: iron/golden/pearl dragon 18, Xtahua 19, bone dragon·Serpent of Hell 20, Tiamat 22).
+  - 보조 공격(aux attack)으로 죽여도 성장한다.
+- 몬스터 장비: Maggie(인챈트 +9), Margery(+10~11)가 각각 1/100 확률로 들고 나온다.
+
+### demon trident "Rift"
+- 브랜드 Distortion.
+- **사거리 3.** 사거리 3의 공격은 지정 공격(smite)처럼 처리되어 **중간에 있는 생물에 막히지 않는다.**
+  - 일반 Polearms(사거리 2)는 사이에 몬스터가 있으면 50% 확률로 막히고, 막히면 적대적인 경우 그 몬스터를 공격한다.
+
+### trishula "Condemnation"
+- 브랜드 Holy Wrath, **rN +1, 비행**, 말을 한다(`noises`).
+- **Anguish**: 몬스터에게 데미지를 주면(죽지 않았고 지능이 brainless보다 높을 때) **Anguish 4~8턴.** Anguish 상태인 몬스터가 누군가에게 데미지를 주면, **같은 양의 데미지를 자신도 받는다.**
+- Barachi가 장착·해제하면 전용 메시지가 나온다(효과 차이 없음).
+
+### Lochaber axe
+- 원형 bardiche. 기본 데미지 +1, 명중 −1, 딜레이 +0.1. **^Drain.**
+- **Poleaxe**: **Axes와 Polearms 중 높은 스킬**을 공격 스킬로 쓴다. 훈련은 두 스킬 모두 대상이 된다.
+- **Reach-Cleave**: 사거리 2이면서 **휩쓸기도 한다.** 휩쓸기 범위가 사거리와 같아서, 공격할 때 **2칸 안의 모든 적대 대상**을 함께 공격한다(추가 대상은 데미지 감소, 휩쓸기 규칙 → [무기 계열 특성](weapons.md#5-무기-계열별-특성)).
+  - `quiver.cc`의 주석은 "휩쓸기 reach는 중간 몬스터에 막히지 않는다"고 하지만, 실제 조건식은 `attack_cleaves(you)`를 무기 인자 없이 호출해서 Storm 형태·Cleave 상태일 때만 참이 된다. 따라서 **Lochaber axe의 reach 공격도 일반 Polearms처럼 중간 몬스터에 50% 확률로 막힌다**(막히면 중간의 적대 몬스터를 공격하고, 휩쓸기로 2칸 안의 다른 적도 맞는다)(0.34.1).
+
+### Force Lance
+- 브랜드 Heavy. 기본 데미지 +2.
+- **Knockback**: 데미지를 주면(죽지 않았을 때) 1/3 확률로 대상을 **1칸 밀쳐낸다.** 밀려서 무언가에 부딪히면 충돌 데미지 `7 + 3d(min(36, 데미지)/4)`.
+- 초반 언랜드(`MAX_LEVEL` 11).
 
 ## Staves
 (다음 실행에서 작성)

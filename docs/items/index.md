@@ -8,7 +8,7 @@
 |---|---|---|
 | 브랜드·에고 (무기 브랜드, 방어구 에고, 투척 브랜드) | [brands-egos.md](brands-egos.md) | 작성 |
 | 아티팩트 속성 (랜덤 아티팩트) | [artefact-properties.md](artefact-properties.md) | 작성 |
-| 언랜드 아티팩트 — 무기 | [unrands-weapons.md](unrands-weapons.md) | 작성 중 (Maces & Flails, Short Blades, Long Blades, Axes) |
+| 언랜드 아티팩트 — 무기 | [unrands-weapons.md](unrands-weapons.md) | 작성 중 (Maces & Flails, Short Blades, Long Blades, Axes, Polearms) |
 | 언랜드 아티팩트 — 방어구 / 장신구 | `unrands-armour.md`, `unrands-jewellery.md` | 예정 |
 | 무기 (근접·원거리·투척, 전투 공식) | [weapons.md](weapons.md) | 작성 |
 | 방어구 (AC·EV·SH·방해도, 몬스터 공격과 방어) | [armour.md](armour.md) | 작성 |

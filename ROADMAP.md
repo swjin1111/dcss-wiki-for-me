@@ -10,7 +10,7 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
   2. [x] 기본 장비: `weapons.md`(투척 포함, 전투 시스템 로직 상세), `armour.md`(AC·EV·SH·방해도 로직 상세)
   3. 언랜드의 기반이 되는 나머지 장비: [x] `jewellery.md`, [x] `staves.md`
   4. 언랜드 아티팩트: `unrands-weapons.md`, `unrands-armour.md`, `unrands-jewellery.md` (기본 수치는 2~3단계 문서로 링크하고, 달라진 점과 고유 효과 위주로 작성)
-     - `unrands-weapons.md` 진행: 무기 계열 단위로 나눠 작성. [x] Maces & Flails, [x] Short Blades, [x] Long Blades, [x] Axes, [ ] Polearms, [ ] Staves, [ ] Ranged Weapons
+     - `unrands-weapons.md` 진행: 무기 계열 단위로 나눠 작성. [x] Maces & Flails, [x] Short Blades, [x] Long Blades, [x] Axes, [x] Polearms, [ ] Staves, [ ] Ranged Weapons
        (수치는 `art-data.txt`의 PLUS/BASE_* + `item-prop.cc` Weapon_prop로 계산, 고유 효과는 `art-func.h`와 `UNRAND_*` 검색)
      - 그다음 `unrands-armour.md`, `unrands-jewellery.md`
   5. 소모품·발동형: `potions.md`, `scrolls.md`, `wands-evokers.md`
@@ -48,4 +48,6 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 - **무작위 아이템 종류 가중치 합**: `makeitem.cc` 주석은 "Total weight: 1660"이지만 실제 합은 1661(사소함). → 아이템 개요 보충 시
 - **staff of necromancy 설명문 불일치**: 설명문(`dat/descript/items.txt`)은 근접 추가 데미지가 "방어구를 무시한다"고 하지만 `Staff_prop`은 `ac_type::normal`이라 AC가 그대로 적용된다(0.34.1). → 2단계(마법 Necromancy 학파 페이지에서 지팡이 언급 시 링크)
 - **은신 보정(언랜드)**: morningstar "Eos" 사용자는 자기 후광 때문에 backlit 상태가 되어 Stealth ×2/5, eveningstar "Brilliance"/ring of Shadows의 Umbra 안에서는 Stealth ×1.5(`player.cc` stealth 계산). Spriggan's Knife는 암습 가능한 대상을 1/2 확률로 잠든 대상처럼 취급. → 은신 & 암습 문서 (언랜드 문서로 링크)
+- **Death Curse 가중치 버그**: `death-curse.cc`의 주석은 세기 15 초과 시 "메시지" 가중치를 0으로 유지한다고 하지만 코드는 음수가 되도록 둔다. 음수 가중치가 목록 맨 앞이라 Smite(그다음 Doom)의 몫이 깎인다(세기 21 이상이면 Smite 0%). 세기는 scythe of Curses = 공격 데미지(최대 27), **미라 = HD(guardian mummy 7, mummy priest 10, greater mummy 15, Khufu 18)**, Kiku 징벌 = XL. → 몬스터(미라)·네임드(Khufu)·신(Kikubaaqudgha) 문서. 세기별 확률표는 [unrands-weapons.md](docs/items/unrands-weapons.md#scythe-of-curses)
+- **Polearms reach 막힘 판정**: 사이에 몬스터가 있으면 50% 확률로 막히고, 막히면 그 몬스터가 적대적일 때 그 몬스터를 공격한다(`quiver.cc`). 무기 문서 5절은 "사이에 막는 것이 없어야 한다"로만 적혀 있음. 지형은 두 중간 칸이 모두 막혀 있을 때만 불가. → 2단계에서 무기 문서 보충
 
