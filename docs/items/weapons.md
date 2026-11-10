@@ -278,7 +278,7 @@
 | quarterstaff | 10 | +3 | 1.3 | 0.6 (14) | 항상 양손 | Little |
 | lajatang | 16 | −3 | 1.4 | 0.7 (14) | 항상 양손 | Little |
 
-마법 지팡이(magical staff)는 지팡이 문서(예정)에서 다룬다.
+마법 지팡이(magical staff)는 [지팡이 문서](staves.md)에서 다룬다.
 
 #### Ranged Weapons
 
