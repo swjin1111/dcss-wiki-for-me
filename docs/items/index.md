@@ -13,7 +13,8 @@
 | 언랜드 아티팩트 — 장신구 | [unrands-jewellery.md](unrands-jewellery.md) | 작성 |
 | 무기 (근접·원거리·투척, 전투 공식) | [weapons.md](weapons.md) | 작성 |
 | 방어구 (AC·EV·SH·방해도, 몬스터 공격과 방어) | [armour.md](armour.md) | 작성 |
-| 포션 / 스크롤 | `potions.md`, `scrolls.md` | 예정 |
+| 포션 | [potions.md](potions.md) | 작성 |
+| 스크롤 | `scrolls.md` | 예정 |
 | 완드·발동 아이템 (Evoker) | `wands-evokers.md` | 예정 |
 | 반지·목걸이 (Jewellery) | [jewellery.md](jewellery.md) | 작성 |
 | 지팡이 (Magical Staves) | [staves.md](staves.md) | 작성 |

@@ -174,7 +174,7 @@
 
 ### Kryia's mail coat
 - scale mail +7, rC+.
-- **PotionHeal\*2: 포션의 HP 회복량 2배**(heal wounds, curing), **potion of magic의 MP 회복량도 2배**.
+- **PotionHeal\*2: 포션의 HP 회복량 2배**(heal wounds, curing, ambrosia. → [포션 회복 배율](potions.md#41-포션-회복-배율)), **potion of magic의 MP 회복량도 2배**.
   - 다른 감소 요인(돌연변이 등)이 있으면 그 감소를 먼저 적용한 뒤 2배를 곱한다.
 - 초반 언랜드(`MAX_LEVEL` 11).
 
@@ -462,7 +462,7 @@
 
 ### Delatra's gloves
 - **ID++**: **처음 보는(미감정) 포션을 마시면** heal wounds 효과(HP `10 + random2avg(28, 3)` = 10~37 회복), **처음 보는 스크롤을 읽으면** potion of magic 효과(MP `10 + random2avg(28, 3)` 회복).
-  - 이 회복은 포션 회복 배율의 영향을 받지 않는다. robe of Vines나 포션 회복 불가 상태에서도 HP가 회복되고, Kryia's mail coat로 2배가 되지도 않는다.
+  - 이 회복은 [포션 회복 배율](potions.md#41-포션-회복-배율)의 영향을 받지 않는다. robe of Vines나 포션 회복 불가 상태에서도 HP가 회복되고, Kryia's mail coat로 2배가 되지도 않는다.
 - 초반 언랜드(`MAX_LEVEL` **6**).
 
 ### gloves of the gadgeteer

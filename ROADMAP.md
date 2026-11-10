@@ -14,7 +14,7 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
        (수치는 `art-data.txt`의 PLUS/BASE_* + `item-prop.cc` Weapon_prop로 계산, 고유 효과는 `art-func.h`와 `UNRAND_*` 검색)
      - `unrands-armour.md`: 51종(부위별: 몸통 18, 방패 5, 오브 5, 망토 6, 머리 7, 손 5, 발 5) **완료**
      - `unrands-jewellery.md`: 16종 **완료**
-  5. 소모품·발동형: `potions.md`, `scrolls.md`, `wands-evokers.md`
+  5. 소모품·발동형: [x] `potions.md`, [ ] `scrolls.md`, [ ] `wands-evokers.md`
   6. 나머지: `talismans.md`, `special-items.md`
 - [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 적성, 능력치, 돌연변이 & 파멸
 - [ ] 후순위: 능력, 상태이상, 보조 공격, 은신 & 암습
@@ -43,7 +43,10 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 ## 다른 문서를 쓸 때 반영할 발견
 코드를 읽다가 찾았지만 아직 해당 문서가 없어서 적어두는 것.
 
-- **포션 회복 배율** (`player.cc`의 `_get_potion_heal_factor`): 기본 2/2, robe of Vines −2, `MUT_NO_POTION_HEAL` 단계당 −1, 그 뒤 Kryia's mail coat ×2, `MUT_DOUBLE_POTION_HEAL` ×2. 대상은 heal wounds·curing의 HP 회복. potion of magic의 MP 회복은 Vines·`MUT_NO_POTION_HEAL`을 무시하고 Kryia·`MUT_DOUBLE_POTION_HEAL`로만 2배. Delatra's gloves의 회복은 포션 경로가 아니라 배율 무관. → potions.md (언랜드 방어구 문서로 링크)
+- **Enlightenment 지속 단위 불일치**: `potion.cc`의 PotionEnlightenment가 `max(비행 지속(aut), Enlightened 지속(aut), 25+random2(pow)(턴 숫자))`로 지속을 정해서, 비행이 불가능한 형태(tree form 등)에서 마시면 Will+ 효과가 2.5~6.4턴만 유지된다(0.34.1). Efficient Metabolism 2배도 사실상 무효. → 상태이상 문서 ([potions.md](docs/items/potions.md#34-enlightenment))
+- **Cocytus에서는 포션을 마실 수 없다**(`item-name.cc` cannot_drink_item_reason). → 던전(Cocytus) 문서
+- **Ru의 Sacrifice Drink/Words 조건 차이**: 포션은 HP가 최대의 1/2 **미만**, 스크롤은 1/2 **이하**일 때 적이 있어도 사용 가능(`player-reacts.cc` `_handle_hoarding`). 적이 사라진 뒤 6턴 동안 계속 금지. → 신(Ru) 문서
+- **Berserk 상세**(사용 제한 목록, 종료 후 Slow/재광폭화 불가 기간 공식)는 [potions.md](docs/items/potions.md#311-berserk-rage)에 요약. → 상태이상 문서에서 상세화
 - **완드 위력 공식** (`evoke.cc`의 `wand_power`): `(15 + Evocations×7/2) × (MP 소모 + 9) / 9`, gloves of the gadgeteer ×1.3, 주문 위력 상한 적용. 충전 보존 30%는 gadgeteer 장갑과 Coglin gizmo 공통. → wands-evokers.md
 - **Teleport 지연**: 기본 3~5턴, Abyss +5~14, Orb 소지·Zot·Charlatan's Orb +5~9. scroll of blinking은 같은 조건에서 사거리 감소·도착점 흔들림(`spl-transloc.cc`). → scrolls.md
 - **은신·소음 관련 방어구 언랜드**: cloak of the Thief(보이는 칸의 소음 절반, Dithmenos 권능과 중첩), robe of Night(시야 ×3/4), crown of vainglory(반경 0 후광 → backlit, Stealth ×2/5), Charlatan's Orb(Stealth ÷3), hood of the Assassin(모든 근접 무기·맨손에 좋은 암습, 감지 반경 4). → 은신 & 암습 문서 ([unrands-armour.md](docs/items/unrands-armour.md)로 링크)
