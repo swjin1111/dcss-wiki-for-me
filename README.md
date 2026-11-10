@@ -17,7 +17,7 @@ Dungeon Crawl Stone Soup **stable 0.34.1** 소스코드를 직접 읽고 정리�
 | 몬스터 (Monsters) | [docs/monsters](docs/monsters) | 예정 |
 | 네임드 (Uniques) | [docs/uniques](docs/uniques) | 예정 |
 | 아이템 (Items) | [docs/items](docs/items) | 예정 |
-| 마법 (Spells) | [docs/spells](docs/spells/index.md) | 샘플 작성 중 (Alchemy) |
+| 마법 (Spells) | [docs/spells](docs/spells/index.md) | 작성 중 (Alchemy 완료) |
 | 적성 (Skills) | [docs/skills](docs/skills) | 예정 |
 | 능력치 (Stats) | [docs/stats](docs/stats) | 예정 |
 | 돌연변이 & 파멸 (Mutations & Doom) | [docs/mutations](docs/mutations) | 예정 |
