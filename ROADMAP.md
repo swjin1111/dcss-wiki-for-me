@@ -15,7 +15,9 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
      - `unrands-armour.md`: 51종(부위별: 몸통 18, 방패 5, 오브 5, 망토 6, 머리 7, 손 5, 발 5) **완료**
      - `unrands-jewellery.md`: 16종 **완료**
   5. 소모품·발동형: [x] `potions.md`, [x] `scrolls.md`, [x] `wands-evokers.md`
-  6. 나머지: `talismans.md`, `special-items.md`
+  6. 나머지: [ ] `talismans.md`, [ ] `special-items.md`
+     - `talismans.md` 진행: [x] 공통 규칙·전체 목록·생성, [x] 1등급(quill, inkwell), [x] 2등급(rimehorn, scarab, medusa, spore, maw), [x] 3등급(serpent, blade, eel, fortress, lupine, spider, wellspring), [ ] 4등급(granite, hive, dragon-coil, sanguine, riddle), [ ] 5등급(storm, death)
+       (형태 수치는 `dat/forms/*.yaml`, 고유 효과는 `transform.cc`의 Form 클래스와 `transformation::<형태>` 검색)
 - [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 적성, 능력치, 돌연변이 & 파멸
 - [ ] 후순위: 능력, 상태이상, 보조 공격, 은신 & 암습
 
@@ -43,6 +45,9 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 ## 다른 문서를 쓸 때 반영할 발견
 코드를 읽다가 찾았지만 아직 해당 문서가 없어서 적어두는 것.
 
+- **Quill form 반격 AC 이중 적용**: `melee-attack.cc` do_spines에서 quill 반격 데미지에 `apply_ac`를 두 번 호출한다(spiny 돌연변이는 한 번). [talismans.md](docs/items/talismans.md#quill-talisman)에 기록. → 2단계 검증 대상
+- **Zin과 탈리스만**: Zin 신자가 어떤 탈리스만이든 사용하면 즉시 파문(`god-item.cc` god_despises_item). 선한 신은 sanguine·death 탈리스만도 파문. → 신(Zin, 선한 신) 문서
+- **Shapeshifter 직업은 quill talisman 형태로 시작**(`ng-setup.cc`). → 직업 문서
 - **완드 주문의 상세는 [wands-evokers.md](docs/items/wands-evokers.md#23-완드-목록)에 있다**: Throw Flame, Paralyse, Charm, Iceblast, Fastroot, Warp Space, Corrosive Bolt, Bolt of Light, Quicksilver Bolt, Polymorph, Mindburst, Dig. 마법 학파 페이지에서 이 주문들이 플레이어 주문으로 있으면 피해 공식은 같으므로 링크로 연결하고, 주문 고유 정보(레벨·책·실패율)만 쓴다. Thunderbolt(lightning rod), Primal Wave(phial), Gell's Gravitas(gravitambourine)도 같음.
 - **Inner Flame 상세**(폭발 피해 3d15/3d20/3d25, 피격 시 불 구름)는 [scrolls.md](docs/items/scrolls.md#29-immolation)에 요약. → 마법(Inner Flame) 문서에서 상세화하고 링크
 - **아이템 세트와 소거법 자동 감정**: 게임마다 세트당 한 종류만 생성(summoning/butterflies, 완드 3세트, 발동 아이템 3세트)되고, 미감정 종류가 1개만 남으면 자동 감정된다(`items.cc` maybe_identify_base_type). [scrolls.md](docs/items/scrolls.md#11-아이템-세트-item-set)에 정리함. → 2단계에서 아이템 개요(index.md) 감정 절에 링크 추가

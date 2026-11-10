@@ -14,7 +14,7 @@
 | 목걸이 | 1 | 언랜드 Justicar's Regalia를 착용하면 2 |
 
 - **Coglin은 반지·목걸이를 낄 수 없다**(`MUT_NO_JEWELLERY`).
-- 변신 형태에 따라 반지·목걸이 슬롯이 막힐 수 있다(탈리스만 문서에서 다룰 예정).
+- 변신 형태에 따라 반지·목걸이 슬롯이 막힐 수 있다. → [탈리스만](talismans.md#14-장비-녹아듦-meld)
 - 반지·목걸이는 그 칸에 올라서면 자동 감정된다. → [감정](index.md#감정-identification)
 
 ## 2. 수치(+N)가 있는 반지
@@ -172,7 +172,7 @@ ring of stealth는 없어졌지만, 아티팩트의 Stlth 속성은 여전히 �
 - Bane of Stumbling은 같은 조건에서 EV −25를 준다(같은 타이머를 쓴다).
 
 ### 4.6 wildshape
-- **Shapeshifting 스킬 +5레벨**(최대 27). 탈리스만 변신 형태의 수치는 Shapeshifting 스킬에 따라 오르므로 변신 형태 전반이 강해진다(탈리스만 문서 예정).
+- **Shapeshifting 스킬 +5레벨**(최대 27). 탈리스만 변신 형태의 수치는 Shapeshifting 스킬에 따라 오르므로 변신 형태 전반이 강해진다. → [탈리스만](talismans.md#13-shapeshifting-스킬과-형태-수치)
 - 끼고 빼면 최대 HP·MP가 다시 계산된다(형태의 HP 보너스 등이 스킬을 따라 바뀌기 때문).
 - 스킬 화면의 목표치 계산에도 +5가 반영된다.
 - **Chaotic 아이템**이다. 끼고 있으면 매 턴 Chaos 행위로 처리되어 **Zin**이 싫어한다.
