@@ -35,7 +35,7 @@
 - Coglin은 보조손에도 무기를 들 수 있다(공격 딜레이는 두 무기의 평균).
 
 ### 1.3 데미지 종류
-- **베기(slicing)·찍기(chopping) 무기**(Long Blades, Axes, halberd·glaive·bardiche, lajatang 등)는 **Hydra의 머리를 자를 수 있다.** 데미지가 4 이상이면 확정, 4 미만이면 50%.
+- **베기(slicing)·찍기(chopping) 무기**(Long Blades, Axes, halberd·glaive·bardiche, lajatang 등)는 **Hydra의 머리를 자를 수 있다.** 데미지가 4 이상이면 확정, 1~3이면 50%. (Claws 돌연변이 3단계의 맨손 공격도 가능)
 - 찌르기·때리기 무기는 머리를 자르지 못한다.
 
 ---
@@ -52,6 +52,7 @@
 6. − 5 (Vertigo 중), + 기타 돌연변이 보정
 7. **위 합계에서 random(0 ~ 합계)를 굴린다.** 이게 이번 공격의 명중치다.
 8. 굴린 뒤 보정:
+   - 부정확(inaccuracy): 단계마다 −5 (Missing Eye 돌연변이, Air 언랜드 등)
    - 대상이 보이지 않음: −6
    - 혼란 상태: −5
    - 대상이 빛나고 있음(backlit, 예: Sticky Flame·Corona): +5
@@ -62,6 +63,7 @@
 - **5%는 무조건 결정**된다(2.5% 자동 명중, 2.5% 자동 빗나감).
 - 대상이 방패를 들고 있으면 막기 판정이 따로 있다(막으면 빗나감과 같다). → 방어구 문서(예정)
 - **암습(stab)이 성립하면 자동 명중**이고 막기도 무시한다.
+- **실명(Blind) 상태**에서는 명중 판정과 별도로 `15 + 거리 × 15`% (최대 90%) 확률로 빗나간다. 인접한 적이면 30%.
 
 ### 2.3 방어구는 근접 명중에 영향이 없다
 0.34.1 코드에서 몸통 방어구·방패의 방해도는 **근접 명중치를 깎지 않는다.** 대신 공격 속도(방패), 원거리 공격 속도(몸통), EV, 마법 실패율에 영향을 준다.
@@ -191,8 +193,8 @@
 |---|---|---|---|
 | dart | 0 | 1/12 (Curare·Disjunction은 1/6) | 항상 브랜드가 있다 |
 | stone | 2 | 항상 부서짐 | |
-| large rock | 20 | 1/25 | 큰 종족만 던질 수 있음 |
-| javelin | 10 | 1/20 | **몸집 Medium 이상만** |
+| large rock | 20 | 1/25 | 몸집 Large 이상 종족만 던질 수 있음 |
+| javelin | 10 | 1/20 | **몸집 Medium 이상만.** 맞힌 대상을 **관통**해서 뒤의 대상도 맞힐 수 있다(부서지면 멈춤) |
 | boomerang | 6 | 1/20 | **던지면 돌아온다** |
 | throwing net | 0 | 부서지지 않음 | 대상을 그물에 가둔다 |
 
@@ -295,10 +297,13 @@
 ## 8. 생성 (간략)
 바닥 무작위 생성 기준이다. 아이템 레벨(L)은 [아이템 개요](index.md#아이템-생성-간략) 참고.
 
-- **약 1/30 × (L+3)%**: 희귀 무기 중 하나 — lajatang, hand cannon, triple crossbow, 악마 무기 3종, double sword, eveningstar, executioner's axe, quick blade, triple sword
-- **(L+1)/27**: 무기별 흔함(commonness) 가중치로 선택
-- **그 밖에 깊을수록**: quarterstaff, falchion, long sword, war axe, trident, flail, rapier 중 하나
-- **얕은 층**: sling, spear, hand axe, mace, dagger(2배), club, whip, short sword 중 하나
+무기 종류는 아래 순서로 판정한다(앞 판정에 실패하면 다음으로).
+1. `1/30 × (L+3)/100` 확률: 희귀 무기 중 하나 — lajatang, hand cannon, triple crossbow, 악마 무기 3종, double sword, eveningstar, executioner's axe, quick blade, triple sword
+2. `(L+1)/27` 확률: 전체 무기 중 무기별 흔함(rarity) 가중치로 선택
+3. `(L+1)/(L+11)` 확률: quarterstaff, falchion, long sword, war axe, trident, flail, rapier 중 하나
+4. 나머지: sling, spear, hand axe, mace, dagger(2배), club, whip, short sword 중 하나
+
+얕은 층일수록 4번으로 가는 경우가 많아서 초반에는 기본 무기가 주로 나온다.
 - 브랜드는 무기 계열별 가중치 표에서 굴린다 → [브랜드·에고](brands-egos.md#무기-브랜드)
 
 > 출처: item-prop.cc, fight.cc, attack.cc, melee-attack.cc, ranged-attack.cc, player-act.cc, throw.cc, makeitem.cc, species.cc, dat/species/*.yaml (0.34.1)
