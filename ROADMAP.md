@@ -35,3 +35,8 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 - 게임 실행을 통한 검증 (arena 모드, wizard mode fsim)
 - 커뮤니티 자료(공략·경험담)를 출처와 함께 별도 섹션으로 넣을지 여부
 - C++ 공부용 코드 해설 (장기 목표)
+
+## 다른 문서를 쓸 때 반영할 발견
+코드를 읽다가 찾았지만 아직 해당 문서가 없어서 적어두는 것.
+
+- **Coglin의 Warmup Strikes**(`MUT_WARMUP_STRIKES`): 회전 수치가 낮을 때의 데미지 감소(0일 때 2/3)가 **원거리 공격에만 적용되고 근접 공격에는 적용되지 않는다.** `melee-attack.cc`의 `player_apply_final_multipliers`에서 `apply_rev_penalty(damage);`의 반환값을 버리기 때문(0.34.1). → 종족 문서
