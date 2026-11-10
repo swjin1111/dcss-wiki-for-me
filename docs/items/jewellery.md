@@ -2,7 +2,7 @@
 
 > 기준: DCSS 0.34.1 · [아이템 목록으로](index.md)
 
-반지(ring)와 목걸이(amulet)의 종류별 효과와 수치, 착용 슬롯, 생성 규칙을 정리한다. 랜덤 아티팩트 속성은 [아티팩트 속성](artefact-properties.md), 언랜드 장신구는 `unrands-jewellery.md`(예정) 참고.
+반지(ring)와 목걸이(amulet)의 종류별 효과와 수치, 착용 슬롯, 생성 규칙을 정리한다. 랜덤 아티팩트 속성은 [아티팩트 속성](artefact-properties.md), 언랜드 장신구는 [언랜드 장신구](unrands-jewellery.md) 참고.
 
 ---
 

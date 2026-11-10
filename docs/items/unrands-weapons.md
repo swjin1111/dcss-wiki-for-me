@@ -420,7 +420,7 @@
 
 ### trident of the Octopus King
 - 브랜드 Venom, **rElec, rPois**.
-- **인챈트 = `+8 + 2 × (착용 중인 ring of the Octopus King 수)`.** 반지 8개를 모두 끼면 +24. 반지는 언랜드 장신구 문서(예정)에서 다룬다.
+- **인챈트 = `+8 + 2 × (착용 중인 ring of the Octopus King 수)`.** 반지 8개를 모두 끼면 +24. → [ring of the Octopus King](unrands-jewellery.md#ring-of-the-octopus-king)
 - 초반 언랜드(`MAX_LEVEL` 11).
 
 ### lance "Wyrmbane"
