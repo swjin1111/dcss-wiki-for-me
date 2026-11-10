@@ -9,7 +9,8 @@
 | 브랜드·에고 (무기 브랜드, 방어구 에고, 투척 브랜드) | [brands-egos.md](brands-egos.md) | 작성 |
 | 아티팩트 속성 (랜덤 아티팩트) | [artefact-properties.md](artefact-properties.md) | 작성 |
 | 언랜드 아티팩트 — 무기 | [unrands-weapons.md](unrands-weapons.md) | 작성 |
-| 언랜드 아티팩트 — 방어구 / 장신구 | `unrands-armour.md`, `unrands-jewellery.md` | 예정 |
+| 언랜드 아티팩트 — 방어구 | [unrands-armour.md](unrands-armour.md) | 작성 |
+| 언랜드 아티팩트 — 장신구 | `unrands-jewellery.md` | 예정 |
 | 무기 (근접·원거리·투척, 전투 공식) | [weapons.md](weapons.md) | 작성 |
 | 방어구 (AC·EV·SH·방해도, 몬스터 공격과 방어) | [armour.md](armour.md) | 작성 |
 | 포션 / 스크롤 | `potions.md`, `scrolls.md` | 예정 |
@@ -70,7 +71,7 @@
 |---|---|---|
 | 정의 | 무작위로 이름과 속성이 정해지는 아티팩트 | 이름·속성·고유 효과가 정해진 아티팩트 |
 | 개수 | 무제한 | 무작위 생성 가능 **112개** (무기 51 / 방어구 47 / 장신구 14) + 특정 장소에서만 나오는 것 9개 |
-| 속성 | [아티팩트 속성](artefact-properties.md) 참고 | [언랜드 무기](unrands-weapons.md) 참고 (방어구·장신구는 예정) |
+| 속성 | [아티팩트 속성](artefact-properties.md) 참고 | [언랜드 무기](unrands-weapons.md), [언랜드 방어구](unrands-armour.md) 참고 (장신구는 예정) |
 
 - **언랜드는 한 게임에 하나씩만** 나온다.
   - 초반용 언랜드는 지정된 깊이 이하에서 가중치 100, 그보다 깊으면 1. 일반 언랜드는 깊이와 무관하게 가중치 10.

@@ -9,10 +9,11 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
   1. [x] 공통 시스템: `index.md`(인챈트·감정·생성·아티팩트 개요), `brands-egos.md`, `artefact-properties.md`
   2. [x] 기본 장비: `weapons.md`(투척 포함, 전투 시스템 로직 상세), `armour.md`(AC·EV·SH·방해도 로직 상세)
   3. 언랜드의 기반이 되는 나머지 장비: [x] `jewellery.md`, [x] `staves.md`
-  4. 언랜드 아티팩트: [x] `unrands-weapons.md`, `unrands-armour.md`, `unrands-jewellery.md` (기본 수치는 2~3단계 문서로 링크하고, 달라진 점과 고유 효과 위주로 작성)
+  4. 언랜드 아티팩트: [x] `unrands-weapons.md`, [x] `unrands-armour.md`, `unrands-jewellery.md` (기본 수치는 2~3단계 문서로 링크하고, 달라진 점과 고유 효과 위주로 작성)
      - `unrands-weapons.md` 진행: 무기 계열 단위로 나눠 작성. [x] Maces & Flails, [x] Short Blades, [x] Long Blades, [x] Axes, [x] Polearms, [x] Staves, [x] Ranged Weapons — **완료**
        (수치는 `art-data.txt`의 PLUS/BASE_* + `item-prop.cc` Weapon_prop로 계산, 고유 효과는 `art-func.h`와 `UNRAND_*` 검색)
-     - 그다음 `unrands-armour.md`, `unrands-jewellery.md`
+     - `unrands-armour.md`: 51종(부위별: 몸통 18, 방패 5, 오브 5, 망토 6, 머리 7, 손 5, 발 5) **완료**
+     - 그다음 `unrands-jewellery.md`
   5. 소모품·발동형: `potions.md`, `scrolls.md`, `wands-evokers.md`
   6. 나머지: `talismans.md`, `special-items.md`
 - [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 적성, 능력치, 돌연변이 & 파멸
@@ -42,6 +43,11 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 ## 다른 문서를 쓸 때 반영할 발견
 코드를 읽다가 찾았지만 아직 해당 문서가 없어서 적어두는 것.
 
+- **포션 회복 배율** (`player.cc`의 `_get_potion_heal_factor`): 기본 2/2, robe of Vines −2, `MUT_NO_POTION_HEAL` 단계당 −1, 그 뒤 Kryia's mail coat ×2, `MUT_DOUBLE_POTION_HEAL` ×2. 대상은 heal wounds·curing의 HP 회복. potion of magic의 MP 회복은 Vines·`MUT_NO_POTION_HEAL`을 무시하고 Kryia·`MUT_DOUBLE_POTION_HEAL`로만 2배. Delatra's gloves의 회복은 포션 경로가 아니라 배율 무관. → potions.md (언랜드 방어구 문서로 링크)
+- **완드 위력 공식** (`evoke.cc`의 `wand_power`): `(15 + Evocations×7/2) × (MP 소모 + 9) / 9`, gloves of the gadgeteer ×1.3, 주문 위력 상한 적용. 충전 보존 30%는 gadgeteer 장갑과 Coglin gizmo 공통. → wands-evokers.md
+- **Teleport 지연**: 기본 3~5턴, Abyss +5~14, Orb 소지·Zot·Charlatan's Orb +5~9. scroll of blinking은 같은 조건에서 사거리 감소·도착점 흔들림(`spl-transloc.cc`). → scrolls.md
+- **은신·소음 관련 방어구 언랜드**: cloak of the Thief(보이는 칸의 소음 절반, Dithmenos 권능과 중첩), robe of Night(시야 ×3/4), crown of vainglory(반경 0 후광 → backlit, Stealth ×2/5), Charlatan's Orb(Stealth ÷3), hood of the Assassin(모든 근접 무기·맨손에 좋은 암습, 감지 반경 4). → 은신 & 암습 문서 ([unrands-armour.md](docs/items/unrands-armour.md)로 링크)
+- **장비 슬롯 예외**: fungal fisticloak의 추가 장갑 슬롯은 종족 제한 검사 전에 더해져서 Large·Little 종족도 장갑 1개를 낄 수 있다(코드상, 미확인). Lear's hauberk는 몸통·머리·손·발 슬롯이 모두 있어야 입을 수 있다. → 종족 문서(장비 제한 정리 시)
 - **Coglin의 Warmup Strikes**(`MUT_WARMUP_STRIKES`): 회전 수치가 낮을 때의 데미지 감소(0일 때 2/3)가 **원거리 공격에만 적용되고 근접 공격에는 적용되지 않는다.** `melee-attack.cc`의 `player_apply_final_multipliers`에서 `apply_rev_penalty(damage);`의 반환값을 버리기 때문(0.34.1). → 종족 문서
 - **Sticky Flame 종료 판정 버그**: `player.cc`의 `dec_sticky_flame_player`에서 `you.duration[DUR_STICKY_FLAME == 0]`로 잘못 쓰여 있어, 실제로는 `you.duration[0]`(= `DUR_INVIS`, 투명 상태)를 검사한다. 그 결과 (1) 지속 시간이 자연히 끝날 때는 종료 메시지와 정리(`end_sticky_flame_player`)가 실행되지 않고, (2) **플레이어가 투명 상태이면 Sticky Flame이 다음 틱에 바로 꺼진다**(0.34.1). → 상태이상 문서, Alchemy의 Sticky Flame 항목(2단계)
 - **주문 볼트에 대한 플레이어의 막기 공식**은 근접·투사체 공격과 다르다: `beam.cc`에서 `random2(명중 × 1.3) < shield_bonus()`로 판정(몬스터 HD가 아니라 볼트의 명중치 사용). 방어구 문서 5.2절은 근접·투사체 기준. → 상태이상 또는 2단계에서 방어구 문서 보충 검토
