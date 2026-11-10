@@ -5,7 +5,7 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 
 - [x] 마법 — Alchemy
 - [ ] 마법 — 나머지 학파 (다음 순서)
-  0. [ ] `spells/index.md` 보강: 공통 시스템(Spell power 공식, 실패율 공식, 마법 강화(enhancer), 주문 슬롯·기억, 소음, 범위) — 학파 페이지보다 먼저
+  0. [x] `spells/index.md` 보강: 공통 시스템(Spell power 공식, 실패율 공식, 마법 강화(enhancer), 주문 슬롯·기억, 소음, 범위) — 학파 페이지보다 먼저
   1. [ ] Conjurations → 2. [ ] Hexes → 3. [ ] Fire → 4. [ ] Ice → 5. [ ] Air → 6. [ ] Earth → 7. [ ] Necromancy → 8. [ ] Summoning → 9. [ ] Translocations → 10. [ ] Forgecraft
      (학파 목록은 `spl-data.h`의 spschool 기준. 여러 학파 주문은 먼저 쓴 페이지에 상세, 나머지는 링크. 완드 주문은 [wands-evokers.md](docs/items/wands-evokers.md) 상세로 링크)
 - [x] 아이템 (아래 순서) — **완료**
