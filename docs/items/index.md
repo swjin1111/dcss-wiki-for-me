@@ -9,8 +9,8 @@
 | 브랜드·에고 (무기 브랜드, 방어구 에고, 투척 브랜드) | [brands-egos.md](brands-egos.md) | 작성 |
 | 아티팩트 속성 (랜덤 아티팩트) | [artefact-properties.md](artefact-properties.md) | 작성 |
 | 언랜드 아티팩트 — 무기 / 방어구 / 장신구 | `unrands-weapons.md`, `unrands-armour.md`, `unrands-jewellery.md` | 예정 |
-| 무기 (근접·원거리·투척) | `weapons.md` | 예정 |
-| 방어구 | `armour.md` | 예정 |
+| 무기 (근접·원거리·투척, 전투 공식) | [weapons.md](weapons.md) | 작성 |
+| 방어구 (AC·EV·SH·방해도, 몬스터 공격과 방어) | [armour.md](armour.md) | 작성 |
 | 포션 / 스크롤 | `potions.md`, `scrolls.md` | 예정 |
 | 완드·발동 아이템 (Evoker) | `wands-evokers.md` | 예정 |
 | 반지·목걸이 / 지팡이(Staff) / 탈리스만 | `jewellery.md`, `staves.md`, `talismans.md` | 예정 |
@@ -36,7 +36,7 @@
 무기와 방어구에는 `+N` 수치가 붙는다. Scroll of Enchant Weapon / Enchant Armour로 올릴 수 있다.
 
 ### 효과
-- **무기**: +1당 명중과 데미지가 각각 +1. (전투 공식은 무기 문서에서 상세히 다룰 예정)
+- **무기**: +1당 명중 +1, 데미지는 최대 +1(평균 +0.5). 인챈트와 Slaying 합계만큼 `random(0 ~ 합계)`가 더해지기 때문이다. → [무기 문서](weapons.md#31-계산-순서)
 - **방어구**: +1당 AC +1. **방패는 AC 대신 SH가 오른다.**
 
 ### 스크롤로 올릴 수 있는 상한
