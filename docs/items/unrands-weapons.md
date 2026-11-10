@@ -2,7 +2,7 @@
 
 > 기준: DCSS 0.34.1 · [아이템 목록으로](index.md)
 >
-> **작성 진행 상황**: Maces & Flails, Short Blades 작성 완료. Long Blades, Axes, Polearms, Staves, Ranged Weapons는 다음 실행에서 이어서 작성한다(아래 [전체 목록](#전체-목록)의 "상세" 칸 참고).
+> **작성 진행 상황**: Maces & Flails, Short Blades, Long Blades 작성 완료. Axes, Polearms, Staves, Ranged Weapons는 다음 실행에서 이어서 작성한다(아래 [전체 목록](#전체-목록)의 "상세" 칸 참고).
 
 이름·수치·고유 효과가 정해진 무기 아티팩트를 정리한다. 원형 무기의 기본 수치와 전투 공식은 [무기 문서](weapons.md), 브랜드 효과는 [브랜드·에고](brands-egos.md#무기-브랜드), 아티팩트 속성(Str, rF 등)의 의미는 [아티팩트 속성](artefact-properties.md) 참고. 이 문서는 **원형과 달라진 점과 고유 효과** 위주로 쓴다.
 
@@ -39,15 +39,15 @@
 | | [captain's cutlass](#captains-cutlass) | rapier | 작성 |
 | | [arc blade](#arc-blade) | rapier | 작성 |
 | | [pair of quick blades "Gyre" and "Gimble"](#pair-of-quick-blades-gyre-and-gimble) | quick blade | 작성 |
-| Long Blades | Singing Sword | double sword | 예정 |
-| | demon blade "Leech" | demon blade | 예정 |
-| | zealot's sword | eudemon blade | 예정 |
-| | sword of the Dread Knight | great sword | 예정 |
-| | plutonium sword | triple sword | 예정 |
-| | autumn katana | long sword | 예정 |
-| | Maxwell's thermic engine | double sword | 예정 |
-| | Throatcutter | long sword | 예정 |
-| | sword of Cerebov (nogen) | great sword | 예정 |
+| Long Blades | [Singing Sword](#singing-sword) | double sword | 작성 |
+| | [demon blade "Leech"](#demon-blade-leech) | demon blade | 작성 |
+| | [zealot's sword](#zealots-sword) | eudemon blade | 작성 |
+| | [sword of the Dread Knight](#sword-of-the-dread-knight) | great sword | 작성 |
+| | [plutonium sword](#plutonium-sword) | triple sword | 작성 |
+| | [autumn katana](#autumn-katana) | long sword | 작성 |
+| | [Maxwell's thermic engine](#maxwells-thermic-engine) | double sword | 작성 |
+| | [Throatcutter](#throatcutter) | long sword | 작성 |
+| | [sword of Cerebov](#sword-of-cerebov) (nogen) | great sword | 작성 |
 | Axes | Wrath of Trog | battleaxe | 예정 |
 | | mithril axe "Arga" | broad axe | 예정 |
 | | obsidian axe | broad axe | 예정 |
@@ -228,7 +228,82 @@
 ---
 
 ## Long Blades
-(다음 실행에서 작성)
+
+### 수치표
+| 언랜드 | 인챈트 | 데미지 | 명중 | 딜레이 | 최소 딜레이 (필요 스킬) | 브랜드 |
+|---|---|---|---|---|---|---|
+| Singing Sword | +11 | 15 | −1 | 1.5 | 0.7 (16) | 없음 |
+| demon blade "Leech" | +8 | 13 | −1 | 1.3 | 0.6 (14) | Vampirism |
+| zealot's sword | +10 | 14 | −2 | 1.2 | 0.6 (12) | Holy Wrath |
+| sword of the Dread Knight | +13 | 17 | −3 | 1.7 | 0.7 (20) | 없음 |
+| plutonium sword | +11 | 19 | −4 | 1.8 | 0.7 (22) | 없음 |
+| autumn katana | +8 | **14 (+4)** | **+3 (+2)** | **1.2 (−0.2)** | 0.6 (12) | 없음 |
+| Maxwell's thermic engine | +2 ~ +14 (변동) | 15 | −1 | 1.5 | 0.7 (16) | Flaming |
+| Throatcutter | +7 | 10 | +1 | 1.4 | 0.7 (14) | Draining |
+| sword of Cerebov | +6 | **18 (+1)** | **−2 (+1)** | 1.7 | 0.7 (20) | Flaming |
+
+→ [무기 수치표](weapons.md#long-blades)
+
+### Singing Sword
+- 브랜드 없음, 인챈트 +11.
+- **명중할 때 일정 확률로 Sonic Wave 발동**: 사용자를 중심으로 **시야 안의 모든 대상**(아군 포함, 사용자 제외)에게 데미지. 데미지는 주사위 2개로 합계 최대 `5 + 위력/5`, 대상의 AC가 적용된다.
+- 발동 확률과 위력은 **전투의 긴장도(tension)** 단계에 따라 달라진다. 단계 = `1 + 긴장도/20` (1~4). 긴장도는 주변 적의 위협 정도로 게임이 내부적으로 계산하는 값이다.
+
+| 단계 | 이름 표시 | 발동 확률 | 위력 | 최대 데미지 | 소음 |
+|---|---|---|---|---|---|
+| 0 (사용자가 Silence 안) | Sulking Sword | (대사만, 발동 없음) | — | — | 0 |
+| 1 | Singing Sword | 6/24 = 25% | 100 | 25 | 0 |
+| 2 | Singing Sword | 6/16 = 37.5% | 113 | 27 | 20 |
+| 3 | Singing Sword | 6/12 = 50% | 126 | 30 | 30 |
+| 4 | **Screaming Sword** | 6/12 = 50% | 175 | 40 | 40 |
+
+- 발동할 때마다 대사를 말하며, 단계 2 이상이면 그만큼 소음을 낸다.
+- 몬스터가 들면 항상 단계 1로 취급한다.
+- Silence 상태가 아니고 시야 안에 공격하면 안 되는 대상이 있으면 공격할 때 경고가 나온다.
+
+### demon blade "Leech"
+- 브랜드 Vampirism, **rN +1**, **Harm**(주는 데미지와 받는 데미지 증가), **^Drain**(해제 시 최대 HP Drain). → [아티팩트 속성](artefact-properties.md)
+- **Vampirism이 매번 발동한다**: 일반 Vampirism의 2/5 실패 판정이 없다. 회복량은 일반과 같은 `1 ~ 데미지`. 그 밖의 조건(살아 있는 대상, HP가 가득 차 있지 않음 등)은 같다. → [Vampirism](brands-egos.md#vampirism)
+- 플레이어가 피가 있는 대상을 죽이면 `데미지/729` 확률로 대상이 피 구름으로 터진다(연출).
+
+### zealot's sword
+- 원형 eudemon blade(설명에서도 원형 이름이 드러나지 않는다). 브랜드 Holy Wrath, **EV +3, rN +1, \*Rage 20%**(근접 공격 시 20% 확률로 광폭화).
+- **Zealotry**: 사용자가 광폭화(Berserk)하면 **시야 안의 모든 아군도 같이 광폭화**한다. 몬스터가 들고 있으면 그 몬스터 편의 대상이 같이 광폭화한다.
+
+### sword of the Dread Knight
+- 브랜드 없음, 인챈트 +13, **Willpower +1단계**, **\*Silence**(피해를 받을 때 확률적으로 침묵), **Evil 아이템**, **^Drain**.
+- **Decimate**: 명중할 때마다(대상이 죽지 않았으면) 추가 데미지 `random2avg(1 + 대상 최대HP/10, 3)` (평균 약 대상 최대 HP의 5%). AC를 무시한다.
+
+### plutonium sword
+- 브랜드 없음, 인챈트 +11, **Stealth −1단계**, **^Contam**(해제 시 마법 오염), **Chaotic 아이템**(Zin이 싫어함).
+- **명중할 때 1/5 확률로 변이 에너지**(대상이 그 공격으로 죽지 않았고 돌연변이가 가능한 대상일 때):
+  - 그중 1/10: 대상을 **Polymorph**(다른 몬스터로 변신). 플레이어가 맞으면 7~14턴의 짧은 변이.
+  - 나머지: 몬스터에게 **나쁜 돌연변이(malmutate) + 데미지 5~25**. 플레이어가 맞으면 마법 오염 700~1350 + 데미지 5~25.
+  - 플레이어가 사용자이면 발동할 때마다 Chaos 행위로 처리된다.
+
+### autumn katana
+- 원형 long sword(이름 표기는 "katana"). 브랜드 없음. **기본 데미지 +4, 명중 +2, 딜레이 −0.2.**
+- **명중할 때 1/8 확률로 Manifold Assault**: 시야 안의 보이는 **적대 대상** 중 원래 대상을 뺀 최대 8명에게 이 카타나로 근접 공격을 한 번씩 한다(순서 무작위). 아군과 중립 몬스터는 대상에서 빠진다.
+  - 이 연쇄 공격에서 다시 Manifold Assault가 발동하지는 않는다.
+
+### Maxwell's thermic engine
+- 브랜드 Flaming. 인챈트가 **+2에서 시작해 전투 중에 변한다.**
+  - **명중할 때마다 인챈트 +2**, 최대 +14.
+  - **턴마다 인챈트 −1**씩 +2까지 돌아간다.
+  - 장착하거나 해제하면 +2로 초기화된다.
+- **Freeze**: 명중할 때마다(대상이 죽지 않았으면) 추가 Cold 데미지 `random2(데미지)/2 + 1` (평균 약 데미지의 1/4, rC로 감소). 냉기에 노출시키므로 냉혈 몬스터를 느리게 할 수 있다.
+
+### Throatcutter
+- 브랜드 Draining.
+- **Coup de Grace**: 몬스터에게 명중한 뒤 대상의 **남은 HP가 20 이하**이면 **1/3 확률로 즉사**. 머리가 여럿인 히드라도 한 번에 죽는다. 플레이어에게는 발동하지 않는다.
+- 초반 언랜드(`MAX_LEVEL` 9).
+- 몬스터 장비: Terence가 1/100 확률로 들고 나온다.
+
+### sword of Cerebov
+- **바닥에서 생성되지 않는다.** Pandemonium의 Cerebov가 들고 있다.
+- 원형 great sword(이름 표기는 "flamberge"). 기본 데미지 +1, 명중 +1. 브랜드 Flaming, **Evil 아이템**.
+- **Hellfire**: 데미지가 들어가면 대상에게 **Fire Vulnerability**(rF −1)를 건다. 지속 `3 + random2(데미지)` 턴. 이미 걸려 있으면 새로 걸지 않는다. 플레이어가 맞아도 걸린다.
+- 몬스터는 Cerebov 본인만 이 무기를 든다.
 
 ## Axes
 (다음 실행에서 작성)
