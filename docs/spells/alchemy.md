@@ -2,7 +2,7 @@
 
 > 기준: DCSS 0.34.1 · [마법 목록으로](index.md)
 
-독(Poison)과 물질 변환을 다루는 학파. 예전의 Poison Magic과 Transmutation 일부가 합쳐진 학파로, 독 데미지 외에도 석화, 액화, 방사능, 연금 폭탄 같은 다양한 효과를 가진다.
+Poison과 물질 변환을 다루는 학파. 예전의 Poison Magic과 Transmutation 일부가 합쳐진 학파로, Poison 데미지 외에도 Petrify, Liquefaction, Irradiate, 연금 폭탄 같은 다양한 효과를 가진다.
 
 ## 플레이어가 배울 수 있는 Alchemy 마법
 
