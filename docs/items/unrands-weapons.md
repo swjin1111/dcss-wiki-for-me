@@ -2,7 +2,7 @@
 
 > 기준: DCSS 0.34.1 · [아이템 목록으로](index.md)
 >
-> **작성 진행 상황**: Maces & Flails, Short Blades, Long Blades 작성 완료. Axes, Polearms, Staves, Ranged Weapons는 다음 실행에서 이어서 작성한다(아래 [전체 목록](#전체-목록)의 "상세" 칸 참고).
+> **작성 진행 상황**: Maces & Flails, Short Blades, Long Blades, Axes 작성 완료. Polearms, Staves, Ranged Weapons는 다음 실행에서 이어서 작성한다(아래 [전체 목록](#전체-목록)의 "상세" 칸 참고).
 
 이름·수치·고유 효과가 정해진 무기 아티팩트를 정리한다. 원형 무기의 기본 수치와 전투 공식은 [무기 문서](weapons.md), 브랜드 효과는 [브랜드·에고](brands-egos.md#무기-브랜드), 아티팩트 속성(Str, rF 등)의 의미는 [아티팩트 속성](artefact-properties.md) 참고. 이 문서는 **원형과 달라진 점과 고유 효과** 위주로 쓴다.
 
@@ -48,13 +48,13 @@
 | | [Maxwell's thermic engine](#maxwells-thermic-engine) | double sword | 작성 |
 | | [Throatcutter](#throatcutter) | long sword | 작성 |
 | | [sword of Cerebov](#sword-of-cerebov) (nogen) | great sword | 작성 |
-| Axes | Wrath of Trog | battleaxe | 예정 |
-| | mithril axe "Arga" | broad axe | 예정 |
-| | obsidian axe | broad axe | 예정 |
-| | frozen axe "Frostbite" | executioner's axe | 예정 |
-| | woodcutter's axe | battleaxe | 예정 |
-| | consecrated labrys | broad axe | 예정 |
-| | Axe of Woe (nogen) | executioner's axe | 예정 |
+| Axes | [Wrath of Trog](#wrath-of-trog) | battleaxe | 작성 |
+| | [mithril axe "Arga"](#mithril-axe-arga) | broad axe | 작성 |
+| | [obsidian axe](#obsidian-axe) | broad axe | 작성 |
+| | [frozen axe "Frostbite"](#frozen-axe-frostbite) | executioner's axe | 작성 |
+| | [woodcutter's axe](#woodcutters-axe) | battleaxe | 작성 |
+| | [consecrated labrys](#consecrated-labrys) | broad axe | 작성 |
+| | [Axe of Woe](#axe-of-woe) (nogen) | executioner's axe | 작성 |
 | Polearms | glaive of Prune | glaive | 예정 |
 | | scythe of Curses | halberd | 예정 |
 | | scythe "Finisher" | halberd | 예정 |
@@ -306,7 +306,64 @@
 - 몬스터는 Cerebov 본인만 이 무기를 든다.
 
 ## Axes
-(다음 실행에서 작성)
+
+### 수치표
+| 언랜드 | 인챈트 | 데미지 | 명중 | 딜레이 | 최소 딜레이 (필요 스킬) | 브랜드 |
+|---|---|---|---|---|---|---|
+| Wrath of Trog | +8 | 15 | −4 | 1.7 | 0.7 (20) | Antimagic |
+| mithril axe "Arga" | +8 | 13 | −2 | 1.6 | 0.7 (18) | Speed |
+| obsidian axe | +16 | 13 | −2 | 1.6 | 0.7 (18) | Draining |
+| frozen axe "Frostbite" | +8 | 18 | −6 | 1.9 | 0.7 (24) | Freezing |
+| woodcutter's axe | +5 | 15 | −4 | **1.0 (−0.7) 고정** | 1.0 (—) | 없음 |
+| consecrated labrys | +4 ~ +16 (변동) | **14 (+1)** | −2 | 1.6 | 0.7 (18) | Holy Wrath |
+| Axe of Woe | — | 18 | (항상 명중) | 1.9 | 0.7 (24) | 없음 |
+
+- Axes 계열이므로 모두 **휩쓸기(cleave)**를 한다. → [무기 계열 특성](weapons.md#5-무기-계열별-특성)
+- → [무기 수치표](weapons.md#axes)
+
+### Wrath of Trog
+- 브랜드 Antimagic, **\*Rage 50%**(근접 공격 시 50% 확률로 광폭화), **Rampage**.
+- **장착하는 순간 광폭화가 끝난 직후와 같은 대가를 받는다**: 광폭화 중이 아니어도 Slow `12 + 2d12`턴, 광폭화 재사용 대기(exhaustion) 그 2배.
+- **광폭화 중에 적을 죽이면 1/2 확률로 광폭화 지속 1~2턴 연장.** (Trog 신자의 신앙 효과로 연장이 먼저 발동한 경우에는 이 효과가 발동하지 않는다.)
+- **Trog은 이 무기를 선물하지 않는다**(Trog 선물로 나오면 파괴된다).
+
+### mithril axe "Arga"
+- 브랜드 Speed, **Willpower +1단계**. 고유 효과는 없다.
+
+### obsidian axe
+- 브랜드 Draining, 인챈트 +16, **SInv, 비행, ^Drain**.
+- **명중할 때 1/10 확률로 악마 소환**(주변부(peripheral) 몬스터를 때릴 때는 제외):
+  - 플레이어: 1/3 확률로 3등급 악마(sun demon, soul eater, smoke demon, neqoxec, ynoxinul, sixfirhy 중 하나), 2/3 확률로 4등급 악마(ice devil, rust devil, orange demon, red devil, chaos spawn, hellwing 중 하나)를 **아군**으로 소환. 아군을 둘 수 없는 상태면 발동하지 않는다.
+  - 몬스터가 들고 있으면 같은 편의 일반 악마를 소환한다.
+  - 소환 지속은 약 190턴(무작위 변동).
+- **Mesmerise(매혹)**: 매 턴, 보이는 위협적인 적 중 가장 가까운 하나에게 **매혹**된다(그 적에게서 멀어지는 이동 불가). 새 대상에게 매혹될 때는 다른 매혹 출처가 모두 지워진다.
+  - 매혹된 동안에는 **이 무기를 해제할 수 없다.**
+  - 대신 **Confusion이 매 턴 풀린다.**
+  - 매혹 중에도 광폭화할 수 있다(일반적으로는 매혹 중 광폭화 불가).
+  - 해제하면 매혹이 모두 풀린다.
+- 설명에서 원형 이름(broad axe)이 드러나지 않는다.
+
+### frozen axe "Frostbite"
+- 브랜드 Freezing, **rC +1, 비행**, 말을 한다(`noises`, 소음 발생).
+- **명중할 때 1/5 확률로 대상 칸에 freezing cloud**(지속 4~8).
+- **freezing cloud 면역.**
+
+### woodcutter's axe
+- 브랜드 없음. 원형 battleaxe(1.7)보다 딜레이 −0.7.
+- **공격 딜레이가 항상 정확히 1.0턴**이다. 스킬로 줄어들지 않고, 방패 페널티, Finesse, Haste·Slow 같은 속도 보정도 적용되지 않는다(`player-act.cc`에서 다른 계산 전에 바로 반환).
+- 초반 언랜드(`MAX_LEVEL` 9).
+
+### consecrated labrys
+- 원형 broad axe(이름 표기는 "labrys"). 기본 데미지 +1. 브랜드 Holy Wrath, **비행, SInv, ^Fragile**(해제하면 파괴).
+- **Valiant**: 인챈트가 시야 안의 위협에 따라 매 턴 바뀐다.
+  - 인챈트 = `min(4 + 3 × 공포 수치, 16)`
+  - 공포 수치(horror level): 시야 안의 적대적이고 위협적인 몬스터마다, 위협도 **nasty(빨강) +3, tough(노랑) +1**. 그 밖은 0.
+  - 예: 위협 없음 +4, tough 2마리 +10, nasty 1마리 +13, nasty 2마리 이상 +16.
+
+### Axe of Woe
+- **일반 게임에서는 생성되지 않는다**(`nogen`). Sprint 모드의 맵(`sprint/meat.des`)에 배치된다.
+- 원형 executioner's axe. 들 수 없는 종족이면 broad axe로 바뀌어 생성된다(항상 들 수 있게).
+- **항상 명중한다.** 명중한 대상은 **남은 HP만큼 피해를 받아 즉사**한다(휩쓸기 대상 포함). 데미지 표시는 "∞"로 나온다.
 
 ## Polearms
 (다음 실행에서 작성)
