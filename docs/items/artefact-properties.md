@@ -100,13 +100,13 @@ AC, EV, SH, HP, Clar(Clarity), RMsl(투사체 방어), rMut(돌연변이 저항)
 ---
 
 ## 무기 randart의 브랜드
-일반 무기에는 안 나오는 Chaos, Reaping, Penetration도 randart에는 나올 수 있다.
+바닥 무작위 생성 무기에는 붙지 않는 Chaos, Reaping, Penetration도 randart에는 나올 수 있다.
 
 ### 근접 무기 (일반)
 | 브랜드 | 가중치 |
 |---|---|
 | Flaming / Freezing | 각 47 |
-| 무기 계열 전용 브랜드 (Devious, Valour, Concussion, Sundering, Entangling, Rebuke) | 35 |
+| 무기 계열 특수 브랜드 (Devious, Valour, Concussion, Sundering, Entangling, Rebuke 중 그 무기 계열에 짝지어진 것) | 35 |
 | Heavy / Venom / Draining | 각 26 |
 | Holy Wrath / Electrocution / Speed / Vampirism / Pain / Antimagic / Protection / Spectral | 각 13 |
 | Reaping | 6 |

@@ -4,6 +4,21 @@
 
 무기에 붙는 특수 효과를 **브랜드(brand)**, 방어구에 붙는 특수 효과를 **에고(ego)**라고 부른다. 일반 아이템에는 최대 하나가 붙는다. 아티팩트의 브랜드·속성은 [아티팩트 속성](artefact-properties.md) 문서를 참고.
 
+## 브랜드·에고 아이템이 나오는 경로
+같은 브랜드·에고라도 **어떤 경로로 생성되느냐에 따라 붙을 수 있는 장비가 다르다.** 이 문서의 "바닥 무작위 생성" 표기는 아래 1번만 가리킨다.
+
+| 경로 | 설명 | 코드 위치 |
+|---|---|---|
+| 1. 바닥 무작위 생성 | 층에 무작위로 떨어지는 일반 아이템. 무기·방어구 종류별 가중치 표를 따른다 | `makeitem.cc`, `item-prop.cc` |
+| 2. 몬스터 장비 | 몬스터가 들고 나오는 장비. 몬스터마다 무기 종류와 브랜드가 따로 정해져 있다. 죽이면 떨어뜨린다 | `mon-gear.cc` |
+| 3. 볼트 지정 아이템 | 특정 볼트·포털(Wizard's Laboratory, Trove, Necropolis 등)이 "이 장비에 이 에고"처럼 직접 지정해서 놓는 아이템 | `dat/des/*.des` |
+| 4. 아티팩트·획득·신의 선물 | 랜덤 아티팩트, Scroll of Acquirement, 신의 선물은 각자 별도의 규칙을 쓴다 | `artefact.cc`, `acquire.cc` 등 |
+
+예를 들어 Spectral 브랜드는 바닥 무작위 생성으로는 Club·Quarterstaff·Lajatang에만 붙지만, 다른 경로로는 이렇게도 나온다.
+- 몬스터 장비: **Asterion**은 demon whip / demon blade / demon trident / morningstar / broad axe 중 하나를 **항상 Spectral로** 들고 나온다. Spriggan druid의 quarterstaff, Killer Klown의 club도 Spectral일 수 있다.
+- 볼트 지정: "great sword ego:spectral", "any weapon ego:spectral"처럼 다른 무기에 Spectral을 지정한 볼트가 있다.
+- 랜덤 아티팩트: 근접 무기 brand 표에 Spectral이 있어서 계열과 상관없이 붙을 수 있다.
+
 이 문서에서 **"관통 데미지"**는 대상의 AC로 줄어든 뒤 실제로 들어간 데미지를 말한다. 상당수 브랜드는 이 값을 기준으로 추가 데미지를 계산한다.
 
 ---
@@ -12,7 +27,7 @@
 
 ### 요약
 
-| 브랜드 | 효과 (요약) | 일반 생성되는 무기 |
+| 브랜드 | 효과 (요약) | 바닥 무작위 생성 시 붙는 무기 |
 |---|---|---|
 | [Flaming](#flaming--freezing) | 관통 데미지의 약 1/4 Fire 추가 | 대부분 (Mace·Flail 등 기본 M&F, Staves 제외) |
 | [Freezing](#flaming--freezing) | 관통 데미지의 약 1/4 Cold 추가, 냉혈 생물 감속 | 대부분 (Mace·Flail 등 기본 M&F, Staves 제외) |
@@ -27,18 +42,19 @@
 | [Heavy](#speed--heavy) | 기본 데미지 ×1.8, 공격 속도 ×1.5 | M&F·Long Blades·Axes·Polearms·Quarterstaff·원거리 |
 | [Antimagic](#antimagic) | 몬스터 주문 방해, 착용자 최대 MP 1/3 | 거의 전부 (낮은 확률) |
 | [Distortion](#distortion) | 추가 데미지·블링크·추방 | 근접 거의 전부 (낮은 확률) |
-| [Chaos](#chaos) | 매 타격 무작위 브랜드 | **아티팩트로만** |
-| [Devious](#무기-계열-전용-브랜드) | 암습 강화 | Short Blades |
-| [Valour](#무기-계열-전용-브랜드) | HP 80% 초과 시 에너지 빔 | Long Blades |
-| [Concussion](#무기-계열-전용-브랜드) | 넉백 | Maces & Flails |
-| [Sundering](#무기-계열-전용-브랜드) | 연속 공격 후 강타 | Axes |
-| [Entangling](#무기-계열-전용-브랜드) | 덩굴로 조이기 | Polearms |
-| [Rebuke](#무기-계열-전용-브랜드) | 근접 공격 후 SH +10 | Staves |
-| [Spectral](#무기-계열-전용-브랜드) | 영체 무기의 추가 공격 | Club·Staves |
-| [Reaping](#그-밖의-브랜드) | 처치한 적을 아군 영체로 부활 | **아티팩트로만** |
-| [Penetration](#그-밖의-브랜드) | 탄환 관통 | **아티팩트 크로스보우로만** |
-| [Acid / Foul Flame](#그-밖의-브랜드) | — | **언랜드 전용** |
+| [Chaos](#chaos) | 매 타격 무작위 브랜드 | 없음 (아티팩트·몬스터 장비·볼트로만) |
+| [Devious](#무기-계열-특수-브랜드) | 암습 강화 | Short Blades |
+| [Valour](#무기-계열-특수-브랜드) | HP 80% 초과 시 에너지 빔 | Long Blades |
+| [Concussion](#무기-계열-특수-브랜드) | 넉백 | Maces & Flails |
+| [Sundering](#무기-계열-특수-브랜드) | 연속 공격 후 강타 | Axes |
+| [Entangling](#무기-계열-특수-브랜드) | 덩굴로 조이기 | Polearms |
+| [Rebuke](#무기-계열-특수-브랜드) | 근접 공격 후 SH +10 | Staves |
+| [Spectral](#무기-계열-특수-브랜드) | 영체 무기의 추가 공격 | Club·Staves |
+| [Reaping](#그-밖의-브랜드) | 처치한 적을 아군 영체로 부활 | 없음 (아티팩트·볼트로만) |
+| [Penetration](#그-밖의-브랜드) | 탄환 관통 | 없음 (아티팩트 크로스보우 등) |
+| [Acid / Foul Flame](#그-밖의-브랜드) | — | 없음 (언랜드 전용) |
 
+- 이 열은 [경로 1](#브랜드에고-아이템이-나오는-경로)만 기준이다. 몬스터 장비·볼트·아티팩트로는 다른 무기에도 붙을 수 있다.
 - 무기 계열별 정확한 생성 가중치는 무기 문서(예정)에 정리한다.
 - 아래의 확률·데미지는 플레이어가 공격할 때 기준이다.
 
@@ -111,7 +127,7 @@
 - **장비를 해제할 때 플레이어가 적 근처로 순간이동하거나 Abyss로 추방될 수 있다.**
 
 ### Chaos
-- **일반 무기에는 생성되지 않는다.** 랜덤 아티팩트와 언랜드로만 나온다.
+- **바닥 무작위 생성 무기에는 붙지 않는다.** 랜덤 아티팩트·언랜드, 일부 몬스터 장비(Crazy Yiuf의 quarterstaff, Kobold fleshcrafter, Killer Klown 등), 볼트 지정 아이템으로 나온다.
 - 타격마다 대상에게 통하는 브랜드 중 하나를 무작위로 고른다.
 
 | 선택 | 가중치 |
@@ -124,8 +140,12 @@
 - 1% 확률로 그 타격에 Reaping 효과가 붙는다.
 - **Zin 등 혼돈을 싫어하는 신의 행위 규정에 걸린다.**
 
-### 무기 계열 전용 브랜드
-각 무기 계열마다 하나씩 있는 특수 브랜드다. 랜덤 아티팩트가 "특수 브랜드"를 뽑으면 그 무기 계열의 것이 붙는다.
+### 무기 계열 특수 브랜드
+무기 계열마다 하나씩 짝지어진 브랜드다. "짝지어졌다"는 건 두 가지 의미다.
+- **바닥 무작위 생성**에서는 그 계열 무기에만 붙는다.
+- **랜덤 아티팩트**가 brand 표에서 "특수 브랜드" 칸을 뽑으면 그 무기 계열에 짝지어진 것이 붙는다.
+
+즉 다른 계열에 붙는 것이 규칙상 불가능한 건 아니다. 볼트 지정 아이템이나 몬스터 장비로는 다른 무기에 붙어서 나올 수 있다(위의 Spectral 예시).
 
 | 브랜드 | 계열 | 효과 |
 |---|---|---|
@@ -138,7 +158,7 @@
 | **Spectral** | Club, Quarterstaff, Lajatang | 공격하면 무기의 영체가 나와 약간 약한 추가 공격을 한다. 영체가 받는 데미지 일부를 플레이어가 나눠 받는다. |
 
 ### 그 밖의 브랜드
-- **Reaping**: 랜덤 아티팩트로만 생성. 생물·신성·악마 적이 죽을 때 `(Reaping으로 준 데미지) / (받은 총 데미지 × 1.5)` 확률로 아군 영체(spectral)로 되살아난다. 혼자 다 때려 잡으면 약 67%.
+- **Reaping**: 바닥 무작위 생성 없음. 랜덤 아티팩트나 볼트 지정 아이템으로 나온다. 생물·신성·악마 적이 죽을 때 `(Reaping으로 준 데미지) / (받은 총 데미지 × 1.5)` 확률로 아군 영체(spectral)로 되살아난다. 혼자 다 때려 잡으면 약 67%.
 - **Penetration**: 랜덤 아티팩트 크로스보우(1/6 확률)로만 생성. 탄이 대상을 뚫고 계속 날아간다.
 - **Acid**: 언랜드 전용. 2d4 Acid 데미지 + Corrosion.
 - **Foul Flame**: 언랜드 전용. 관통 데미지 기준으로 신성 생물에게 최대 1.5배, 그 밖의 대상에게 대상의 저항에 따라 추가 데미지. 신성한 존재나 선한 신 신자는 사용할 수 없다.
@@ -153,10 +173,10 @@ Fire/Ice/Air/Earth 에고, Archmagi, 지팡이 등은 해당 마법의 **강화 
 - 반대로 약화 단계는 단계마다 Spell power ÷2.
 
 ### 에고 목록
-"자연 생성 부위"는 일반(비아티팩트) 아이템에서 그 에고가 생성될 수 있는 장비다.
+"생성 부위"는 [경로 1(바닥 무작위 생성)](#브랜드에고-아이템이-나오는-경로)에서 그 에고가 붙을 수 있는 장비다. 볼트 지정 아이템, 몬스터 장비, 아티팩트는 다를 수 있다.
 
 #### 저항·방어
-| 에고 | 효과 | 자연 생성 부위 |
+| 에고 | 효과 | 생성 부위 |
 |---|---|---|
 | Fire Resistance (rF+) | 화염 저항 +1 | 몸통(robe 포함), barding, 방패 |
 | Cold Resistance (rC+) | 냉기 저항 +1 | 몸통(robe 포함), barding, 방패 |
@@ -171,7 +191,7 @@ Fire/Ice/Air/Earth 에고, Archmagi, 지팡이 등은 해당 마법의 **강화 
 | See Invisible (SInv) | 투명 감지 | hat |
 
 #### 능력치·전투
-| 에고 | 효과 | 자연 생성 부위 |
+| 에고 | 효과 | 생성 부위 |
 |---|---|---|
 | Strength / Dexterity / Intelligence | 해당 능력치 +3 | Str·Dex: gloves / Int: helmet, hat |
 | Stealth | 은신 +1단계(50) | cloak, gloves, hat, boots, barding |
@@ -184,7 +204,7 @@ Fire/Ice/Air/Earth 에고, Archmagi, 지팡이 등은 해당 마법의 **강화 
 | Harm | **주는 데미지 +30%, 받는 데미지 +20%** (2개면 +45% / +30%) | scarf |
 
 #### 이동·시야
-| 에고 | 효과 | 자연 생성 부위 |
+| 에고 | 효과 | 생성 부위 |
 |---|---|---|
 | Flying | 비행 | boots, barding |
 | Ponderousness | 이동이 느려짐(단점). 대신 인챈트가 +3~10 더 붙어 생성 | chain·plate, tower shield |
@@ -193,7 +213,7 @@ Fire/Ice/Air/Earth 에고, Archmagi, 지팡이 등은 해당 마법의 **강화 
 | Light | 주변을 밝혀 투명체를 드러내고, 범위 안의 대상(자신 제외)에 대한 명중 증가, 은신 감소 | helmet |
 
 #### 마법 강화
-| 에고 | 효과 | 자연 생성 부위 |
+| 에고 | 효과 | 생성 부위 |
 |---|---|---|
 | Fire | Fire 마법 강화 +1 | gloves |
 | Ice | Ice 마법 강화 +1 | helmet, hat |
@@ -202,7 +222,7 @@ Fire/Ice/Air/Earth 에고, Archmagi, 지팡이 등은 해당 마법의 **강화 
 | Death | Necromancy 강화·실패율 감소, 다른 마법은 HP 소모 | scale·chain·plate |
 | Command | Summoning 강화, Armour 스킬 비례 | scale·chain·plate |
 | Resonance | Forgecraft 실패율 감소, Forgecraft 스킬 비례 근접 데미지 증가 | scale·chain·plate |
-| Archmagi | 모든 마법 강화 +1 | **일반 생성 없음** |
+| Archmagi | 모든 마법 강화 +1 | **없음** (아래 참고) |
 
 #### 오브(Orb) 전용
 오브는 항상 에고가 붙는다.
@@ -218,11 +238,14 @@ Fire/Ice/Air/Earth 에고, Archmagi, 지팡이 등은 해당 마법의 **강화 
 | Pyromania | Fire 마법 강화 +1, 공격 외의 방법으로 적을 죽이면 화염 폭발 |
 | Stardust | 전투 중 처음 MP를 쓸 때 유성 공격, MP가 회복되고 적이 없을 때 재충전 |
 
-(Orb의 Light 에고는 일반 생성 가중치에 없다.)
+(Orb의 Light 에고는 바닥 무작위 생성 가중치에 없다.)
 
-### 일반 생성되지 않는 에고
-- **Archmagi, Spirit Shield, Rage**: 일반 방어구 생성 가중치에 없다. 볼트에 지정된 아이템이나 아티팩트로만 나온다.
-  - 예: Archmagi는 일반 로브에는 붙지 않고, 랜덤 아티팩트 로브의 Archmagi 속성이나 특정 포털 볼트(wizlab 등)의 지정 아이템으로 나온다.
+### 바닥 무작위 생성으로는 나오지 않는 에고
+- **Archmagi, Spirit Shield, Rage**: 방어구 종류별 에고 가중치 표에 없다.
+- **Archmagi가 나오는 경로 (0.34.1 기준)**
+  - 볼트 지정 아이템: Wizard's Laboratory, Trove, Necropolis 포털에 "robe ego:archmagi"가 지정된 경우가 있다.
+  - 랜덤 아티팩트 로브의 Archmagi 속성 (가중치 40, 로브에만).
+  - **몬스터 장비로는 나오지 않는다.** 몬스터에게 로브를 줄 때도 바닥 생성과 같은 에고 표를 쓰고, 몬스터 장비 코드에 Archmagi를 직접 지정하는 곳이 없다.
 - Spirit Shield: 받는 데미지를 HP와 MP로 나눠 받는다.
 - Rage: 근접 공격 시 20% 확률로 광폭화.
 
@@ -238,8 +261,8 @@ Fire/Ice/Air/Earth 에고, Archmagi, 지팡이 등은 해당 마법의 **강화 
 | Datura (Frenzy) | Dart | 대상이 광란해 아군·적을 가리지 않고 공격 | Dart |
 | Disjunction | Dart | 3~4턴 동안 반복 블링크, 블링크마다 소량 데미지 | Dart |
 | Silver | Javelin | 추가 데미지, 혼돈·변신 존재와 돌연변이 수에 비례해 더 큰 피해 | Javelin, 깊을수록 흔함 |
-| Dispersal | Dart | 대상을 멀리 블링크 | 일반 생성 없음 |
-| Chaos | Boomerang·Javelin | 무작위 효과 | 일반 생성 없음 |
+| Dispersal | Dart | 대상을 멀리 블링크 | 바닥 무작위 생성 없음 |
+| Chaos | Boomerang·Javelin | 무작위 효과 | 바닥 무작위 생성 없음 |
 
 - **Dart는 항상 브랜드가 붙어서 나온다.** Stone, Large Rock, Throwing Net은 브랜드가 없다.
 - **Atropa·Datura의 성공 판정**: `2 + random2(4 + P)`가 대상 HD 이상이면 성공. P = (Throwing + Stealth 스킬) × 2/3.
