@@ -14,7 +14,7 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
        (수치는 `art-data.txt`의 PLUS/BASE_* + `item-prop.cc` Weapon_prop로 계산, 고유 효과는 `art-func.h`와 `UNRAND_*` 검색)
      - `unrands-armour.md`: 51종(부위별: 몸통 18, 방패 5, 오브 5, 망토 6, 머리 7, 손 5, 발 5) **완료**
      - `unrands-jewellery.md`: 16종 **완료**
-  5. 소모품·발동형: [x] `potions.md`, [ ] `scrolls.md`, [ ] `wands-evokers.md`
+  5. 소모품·발동형: [x] `potions.md`, [x] `scrolls.md`, [ ] `wands-evokers.md`
   6. 나머지: `talismans.md`, `special-items.md`
 - [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 적성, 능력치, 돌연변이 & 파멸
 - [ ] 후순위: 능력, 상태이상, 보조 공격, 은신 & 암습
@@ -43,12 +43,13 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 ## 다른 문서를 쓸 때 반영할 발견
 코드를 읽다가 찾았지만 아직 해당 문서가 없어서 적어두는 것.
 
+- **아이템 세트와 소거법 자동 감정**: 게임마다 세트당 한 종류만 생성(summoning/butterflies, 완드 3세트, 발동 아이템 3세트)되고, 미감정 종류가 1개만 남으면 자동 감정된다(`items.cc` maybe_identify_base_type). [scrolls.md](docs/items/scrolls.md#11-아이템-세트-item-set)에 정리함. → 2단계에서 아이템 개요(index.md) 감정 절에 링크 추가
+- **브랜치별 아이템 사용 금지**: Gehenna에서는 스크롤을 읽을 수 없고, Cocytus에서는 포션을 마실 수 없다. Tartarus에서는 플레이어 Willpower가 항상 절반(`player.cc` player_willpower). Abyss는 revelation 불가(no_map). → 던전 문서
+- **`DUR_NO_SCROLLS`는 0.34.1에서 거는 곳이 없다**(정의·표시 코드만 있음). → 상태이상 문서
 - **Enlightenment 지속 단위 불일치**: `potion.cc`의 PotionEnlightenment가 `max(비행 지속(aut), Enlightened 지속(aut), 25+random2(pow)(턴 숫자))`로 지속을 정해서, 비행이 불가능한 형태(tree form 등)에서 마시면 Will+ 효과가 2.5~6.4턴만 유지된다(0.34.1). Efficient Metabolism 2배도 사실상 무효. → 상태이상 문서 ([potions.md](docs/items/potions.md#34-enlightenment))
-- **Cocytus에서는 포션을 마실 수 없다**(`item-name.cc` cannot_drink_item_reason). → 던전(Cocytus) 문서
 - **Ru의 Sacrifice Drink/Words 조건 차이**: 포션은 HP가 최대의 1/2 **미만**, 스크롤은 1/2 **이하**일 때 적이 있어도 사용 가능(`player-reacts.cc` `_handle_hoarding`). 적이 사라진 뒤 6턴 동안 계속 금지. → 신(Ru) 문서
 - **Berserk 상세**(사용 제한 목록, 종료 후 Slow/재광폭화 불가 기간 공식)는 [potions.md](docs/items/potions.md#311-berserk-rage)에 요약. → 상태이상 문서에서 상세화
 - **완드 위력 공식** (`evoke.cc`의 `wand_power`): `(15 + Evocations×7/2) × (MP 소모 + 9) / 9`, gloves of the gadgeteer ×1.3, 주문 위력 상한 적용. 충전 보존 30%는 gadgeteer 장갑과 Coglin gizmo 공통. → wands-evokers.md
-- **Teleport 지연**: 기본 3~5턴, Abyss +5~14, Orb 소지·Zot·Charlatan's Orb +5~9. scroll of blinking은 같은 조건에서 사거리 감소·도착점 흔들림(`spl-transloc.cc`). → scrolls.md
 - **은신·소음 관련 방어구 언랜드**: cloak of the Thief(보이는 칸의 소음 절반, Dithmenos 권능과 중첩), robe of Night(시야 ×3/4), crown of vainglory(반경 0 후광 → backlit, Stealth ×2/5), Charlatan's Orb(Stealth ÷3), hood of the Assassin(모든 근접 무기·맨손에 좋은 암습, 감지 반경 4). → 은신 & 암습 문서 ([unrands-armour.md](docs/items/unrands-armour.md)로 링크)
 - **장비 슬롯 예외**: fungal fisticloak의 추가 장갑 슬롯은 종족 제한 검사 전에 더해져서 Large·Little 종족도 장갑 1개를 낄 수 있다(코드상, 미확인). Lear's hauberk는 몸통·머리·손·발 슬롯이 모두 있어야 입을 수 있다. → 종족 문서(장비 제한 정리 시)
 - **Coglin의 Warmup Strikes**(`MUT_WARMUP_STRIKES`): 회전 수치가 낮을 때의 데미지 감소(0일 때 2/3)가 **원거리 공격에만 적용되고 근접 공격에는 적용되지 않는다.** `melee-attack.cc`의 `player_apply_final_multipliers`에서 `apply_rev_penalty(damage);`의 반환값을 버리기 때문(0.34.1). → 종족 문서
