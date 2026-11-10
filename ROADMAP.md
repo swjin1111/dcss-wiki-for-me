@@ -7,10 +7,11 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 - [ ] 마법 — 나머지 학파
 - [ ] 아이템 (아래 순서)
   1. [x] 공통 시스템: `index.md`(인챈트·감정·생성·아티팩트 개요), `brands-egos.md`, `artefact-properties.md`
-  2. 언랜드 아티팩트: `unrands-weapons.md`, `unrands-armour.md`, `unrands-jewellery.md`
-  3. 기본 장비: `weapons.md`(투척 포함), `armour.md`
-  4. 소모품·발동형: `potions.md`, `scrolls.md`, `wands-evokers.md`
-  5. 나머지: `jewellery.md`, `staves.md`, `talismans.md`, `special-items.md`
+  2. 기본 장비: `weapons.md`(투척 포함, 전투 시스템 로직 상세), `armour.md`(AC·EV·SH·방해도 로직 상세)
+  3. 언랜드의 기반이 되는 나머지 장비: `jewellery.md`, `staves.md`
+  4. 언랜드 아티팩트: `unrands-weapons.md`, `unrands-armour.md`, `unrands-jewellery.md` (기본 수치는 2~3단계 문서로 링크하고, 달라진 점과 고유 효과 위주로 작성)
+  5. 소모품·발동형: `potions.md`, `scrolls.md`, `wands-evokers.md`
+  6. 나머지: `talismans.md`, `special-items.md`
 - [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 적성, 능력치, 돌연변이 & 파멸
 - [ ] 후순위: 능력, 상태이상, 보조 공격, 은신 & 암습
 
