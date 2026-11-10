@@ -4,7 +4,7 @@
 
 완드(wand)와 경험치로 재충전되는 발동 아이템(XP evoker, miscellaneous)의 효과·수치, 위력 공식, 충전 규칙, 생성 규칙을 정리한다. 둘 다 Evocations 스킬을 쓰고 `V`(evoke)로 사용한다. 지속 시간은 **턴**(10 aut = 1턴) 단위다.
 
-ziggurat figurine, shop voucher, flux bauble, gizmo는 특수 아이템 문서(`special-items.md`, 예정)에서 다룬다.
+ziggurat figurine, shop voucher, flux bauble, gizmo는 [특수 아이템](special-items.md)에서 다룬다.
 
 ---
 

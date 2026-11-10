@@ -4,8 +4,11 @@
 README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한다. 이 단계에서는 플레이 팁을 쓰지 않는다.
 
 - [x] 마법 — Alchemy
-- [ ] 마법 — 나머지 학파
-- [ ] 아이템 (아래 순서)
+- [ ] 마법 — 나머지 학파 (다음 순서)
+  0. [ ] `spells/index.md` 보강: 공통 시스템(Spell power 공식, 실패율 공식, 마법 강화(enhancer), 주문 슬롯·기억, 소음, 범위) — 학파 페이지보다 먼저
+  1. [ ] Conjurations → 2. [ ] Hexes → 3. [ ] Fire → 4. [ ] Ice → 5. [ ] Air → 6. [ ] Earth → 7. [ ] Necromancy → 8. [ ] Summoning → 9. [ ] Translocations → 10. [ ] Forgecraft
+     (학파 목록은 `spl-data.h`의 spschool 기준. 여러 학파 주문은 먼저 쓴 페이지에 상세, 나머지는 링크. 완드 주문은 [wands-evokers.md](docs/items/wands-evokers.md) 상세로 링크)
+- [x] 아이템 (아래 순서) — **완료**
   1. [x] 공통 시스템: `index.md`(인챈트·감정·생성·아티팩트 개요), `brands-egos.md`, `artefact-properties.md`
   2. [x] 기본 장비: `weapons.md`(투척 포함, 전투 시스템 로직 상세), `armour.md`(AC·EV·SH·방해도 로직 상세)
   3. 언랜드의 기반이 되는 나머지 장비: [x] `jewellery.md`, [x] `staves.md`
@@ -15,7 +18,7 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
      - `unrands-armour.md`: 51종(부위별: 몸통 18, 방패 5, 오브 5, 망토 6, 머리 7, 손 5, 발 5) **완료**
      - `unrands-jewellery.md`: 16종 **완료**
   5. 소모품·발동형: [x] `potions.md`, [x] `scrolls.md`, [x] `wands-evokers.md`
-  6. 나머지: [x] `talismans.md`, [ ] `special-items.md`
+  6. 나머지: [x] `talismans.md`, [x] `special-items.md`
 - [ ] 종족, 직업, 신, 던전, 몬스터, 네임드, 적성, 능력치, 돌연변이 & 파멸
 - [ ] 후순위: 능력, 상태이상, 보조 공격, 은신 & 암습
 
@@ -43,6 +46,9 @@ README 목차의 각 카테고리를 0.34.1 소스코드 기준으로 작성한�
 ## 다른 문서를 쓸 때 반영할 발견
 코드를 읽다가 찾았지만 아직 해당 문서가 없어서 적어두는 것.
 
+- **Ziggurat 완주 시 Zot 시계 영구 정지**(`zot.cc` zot_immune: Orb 소지 또는 `zigs_completed`). Vaults는 룬 없이 들어가면 잠기고 룬이 있어야 나갈 수 있다. orb run 중 몬스터 생성 주기 18(Cheibriados 36). → 던전 문서
+- **Gem 시간 한도**(층당 시간 × 층 수, [special-items.md](docs/items/special-items.md#21-gem-시간-제한))와 각 브랜치 끝 볼트 위치. → 던전 문서에서 브랜치별로 링크
+- **Coglin의 회전(rev) 시스템**과 Invent Gizmo(XL 14)는 [special-items.md](docs/items/special-items.md#4-gizmo-coglin-전용)에 gizmo만 정리. → 종족(Coglin) 문서
 - **Quill form 반격 AC 이중 적용**: `melee-attack.cc` do_spines에서 quill 반격 데미지에 `apply_ac`를 두 번 호출한다(spiny 돌연변이는 한 번). [talismans.md](docs/items/talismans.md#quill-talisman)에 기록. → 2단계 검증 대상
 - **Zin과 탈리스만**: Zin 신자가 어떤 탈리스만이든 사용하면 즉시 파문(`god-item.cc` god_despises_item). 선한 신은 sanguine·death 탈리스만도 파문. → 신(Zin, 선한 신) 문서
 - **Shapeshifter 직업은 quill talisman 형태로 시작**(`ng-setup.cc`). → 직업 문서
