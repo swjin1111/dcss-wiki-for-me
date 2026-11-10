@@ -2,7 +2,6 @@
 
 > 기준: DCSS 0.34.1 · [아이템 목록으로](index.md)
 >
-> **작성 진행**: 공통 규칙, 전체 목록, 1~3등급 형태 상세 작성. **4~5등급(granite, hive, dragon-coil, sanguine, riddle, storm, death) 상세는 다음 작업에서 이어서 쓴다.**
 
 탈리스만은 장착하면 플레이어를 특정 **변신 형태(form)**로 바꾸는 아이템이다. 형태의 수치는 **Shapeshifting** 스킬에 따라 오른다. 형태별 고유 효과와 공통 규칙, 생성 규칙을 정리한다.
 
@@ -47,7 +46,7 @@
 | held | 무기, 방패(보조손) |
 | physical | 무기, 방패, 몸통, aux 전부 |
 
-반지·목걸이를 녹이는 형태는 1~3등급에는 없다.
+반지·목걸이를 녹이는 탈리스만 형태는 없다(physical에도 장신구는 포함되지 않음).
 
 ### 1.5 형태가 바꾸는 수치 (공통 항목)
 - **AC / EV**: 형태가 주는 고정 보너스. 
@@ -79,13 +78,13 @@
 | 3 | [lupine](#lupine-talisman) | Werewolf | 12~20 | 장갑, 부츠, 바딩 | 처치 시 Slaying, 울부짖음, Bestial Takedown |
 | 3 | [spider](#spider-talisman) | Spider | 12~20 | physical | 거미줄, Rampage, Jump, 좋은 암습 |
 | 3 | [wellspring](#wellspring-talisman) | Aqua | 12~20 | 몸통 | 근접 사거리 +2, Watery Grave |
-| 4 | granite | Statue | 17~25 | 장갑, 부츠, 바딩, 몸통 | (다음 작업) |
-| 4 | hive | Hive | 17~25 | 몸통, 투구 | (다음 작업) |
-| 4 | dragon-coil | Dragon | 17~25 | physical | (다음 작업) |
-| 4 | sanguine | Vampire | 17~25 | 없음 | (다음 작업) |
-| 4 | riddle | Sphinx | 17~25 | 무기·방패·몸통·부츠·투구·장갑 | (다음 작업) |
-| 5 | storm | Storm | 23~27 | physical | (다음 작업) |
-| 5 | talisman of death | Death | 26~27 | 없음 | (다음 작업) |
+| 4 | [granite](#granite-talisman) | Statue | 17~25 | 장갑, 부츠, 바딩, 몸통 | AC +27~38, 모든 행동 느림, 근접 데미지 ×1.5 |
+| 4 | [hive](#hive-talisman) | Hive | 17~25 | 몸통, 투구 | 재생 증가, 중상 시 아군 벌떼 |
+| 4 | [dragon-coil](#dragon-coil-talisman) | Dragon | 17~25 | physical | Giant, HP ×1.5, 비행, 브레스 |
+| 4 | [sanguine](#sanguine-talisman) | Vampire | 17~25 | 없음 | 흡혈, 노예(thrall), 박쥐 떼 변신, 최면 시선 |
+| 4 | [riddle](#riddle-talisman) | Sphinx | 17~25 | 무기·방패·몸통·부츠·투구·장갑 | 비행, 명중 시 airstrike, Hexes 강화 |
+| 5 | [storm](#storm-talisman) | Storm | 23~27 | physical | 전격 맨손 27~33(모든 방향 cleave), EV +20~27, Blinkbolt |
+| 5 | [talisman of death](#talisman-of-death) | Death | 26~27 | 없음 | 언데드, 공격 시 Slow·Weak·Drain, Siphon Essence |
 | — | [protean](#16-protean-talisman) | — | 6 이상 필요 | — | 2등급 탈리스만 중 하나로 변함 |
 
 (blade는 등급표상 3등급이지만 스킬 범위는 17~25다.)
@@ -278,7 +277,7 @@
 
 - EV +6 ~ +13. 수영 가능. **amorphous**(조임 면역 등).
 - **Water reaching**: 근접 공격 **사거리 +2**(맨손 3칸, reach 무기는 무기 사거리 + 2). 보조 공격도 3칸까지 나간다.
-- **Water splatter**: 한 번에 최대 HP의 10% 이상 피해를 받으면(그 미만도 낮은 확률로) 주변 반경 3에 **얕은 물**을 만든다(피해 비율의 절반 정도의 칸 수).
+- **Water splatter**: 한 번에 최대 HP의 10% 이상 피해를 받으면(그 미만도 낮은 확률로) 주변 반경 3에 **얕은 물**을 만든다(피해 비율(%)의 절반 칸 수, 8~11턴 유지).
 - **Watery Grave**(능력, MP 6): 반경 4 안에 물이 있어야 쓸 수 있다. **반경 4 안의 모든 적대 몬스터**에게 물 공격 `4d(1 + 6s/5)`(스킬 12 → 4d15, 20 → 4d25)를 하고, 숨 쉬는 몬스터는 익사 상태(Flooded)로 만든다. 사용 후 **반경 4 안의 얕은 물은 모두 바닥으로 바뀐다.** 재사용은 경험치로 충전된다.
 - **약점**:
   - 냉기 피해를 받으면 1/2 확률로 **Frozen**(5~10턴, 상한 50; 이동 시간 ×1.5).
@@ -286,7 +285,106 @@
 
 ---
 
-## 6. 생성 (간략)
+## 6. 4등급
+
+### granite talisman
+**Statue form** · 스킬 17~25 · 녹아듦: 장갑, 부츠, 바딩, 몸통 (무기·방패·투구·망토는 사용 가능)
+
+| 항목 | 값 |
+|---|---|
+| HP | ×1.3 |
+| AC | **+27 ~ +38** |
+| Str | +7 |
+| 맨손 데미지 | 3 + 5 = 8 |
+| 저항 | rElec, rN+, **석화 면역**, Torment 피해 절반 |
+| 성질 | nonliving |
+
+- **모든 행동 시간 ×1.5**(이동·공격·주문 등, `player_speed`).
+- **근접 데미지 ×1.5**(AC 적용 후). 느려진 공격 속도를 정확히 상쇄하도록 만든 배율이다.
+- **EV ×4/5**(자연 EV에 곱함).
+- Lee's Rapid Deconstruction의 대상이 될 수 있고, Shatter에 맞을 때의 피해 주사위가 Gargoyle·Revenant와 같은 최대 단계(6)다.
+- Gargoyle은 이 탈리스만을 쓸 수 없다.
+
+### hive talisman
+**Hive form** · 스킬 17~25 · 녹아듦: 몸통, 투구
+
+- AC +5.
+- **재생**: HP 재생 `+160 + 120×(s−17)/8`(턴당 +1.6 ~ +2.8), MP 재생 `+60 + 40×(s−17)/8`.
+- **Hive swarm**: 피해를 받아 **HP가 최대의 50% 이하**가 되면 아군 **killer bee**(HD 5) `3.2 + 2.3×(s−17)/8`마리(반올림 무작위, 3~6마리)가 주변(반경 1~3)에 나온다. 벌은 **Berserk**와 **Concentrate Venom** 상태이고 12~18턴 지속. 한 번 발동하면 **HP가 가득 찰 때까지** 다시 발동하지 않는다.
+- 아군을 가질 수 없는 경우(Sacrifice Love)와 Okawaru 신자는 사용할 수 없다. Okawaru는 hive form 상태의 플레이어를 신자로 받지 않는다.
+
+### dragon-coil talisman
+**Dragon form** · 스킬 17~25 · 녹아듦: physical
+
+| 항목 | 값 |
+|---|---|
+| 몸집 | **Giant** |
+| HP | ×1.5 |
+| AC | +12 ~ +18 (Draconian은 −6) |
+| Str | +10 |
+| 맨손 데미지 | 3 + (8 ~ 18) = 11~21, claws 3단계 상당, 방패 손 펀치 가능 |
+| 저항 | rF+, rC+, rPois (Draconian은 rF·rC를 형태에서 받지 않고 종족 색의 저항을 따름) |
+| 비행 | **가능**(항상 비행) |
+| 수영 | 불가 |
+
+- **브레스**: Draconian이 아니면 **Golden Breath**(사거리 5)를 쓴다. 화염 볼트와 냉기 볼트를 같은 방향으로 **한 번씩 관통 발사**(각 `3d(2 + 4p/3)`)하고, 경로에 독 구름(4~8턴)을 남긴다.
+  - 브레스 위력 `p = s − 5`(Draconian은 여기에 XL을 더한다). 스킬 17 → 각 3d18, 25 → 각 3d28.
+  - 브레스는 **충전식**(최대 3회). 경험치를 얻으면 충전되며, **dragon form에서는 2배 빨리** 충전된다. 처음 dragon form이 되면(Draconian 제외) 1회분을 받는다.
+  - Draconian은 자기 종족 브레스를 쓰고, dragon form에서 브레스 실패율 −20%, 위력에 형태 보너스가 더해진다. 형태 이름도 종족 색에 맞는 용이 된다.
+
+### sanguine talisman
+**Vampire form** · 스킬 17~25 · 녹아듦: 없음
+
+- 저항: rC+, **rN++**, Torment 피해 절반. 성질에 **undead가 추가**된다(살아 있는 상태는 유지).
+- **Stealth +2단계.**
+- **흡혈**: 인접한 대상에게 근접 공격할 때, **암습(stab)이거나 HP가 최대의 50% 이하**이면(후자는 2/3 확률) 입힌 피해의 `random2(데미지)`만큼 회복(흡혈 가능한 대상만, Death's Door 중 불가).
+- **Bloodcurse**: 암습으로 소환수가 아닌 natural·plant·demonic 몬스터를 죽이면 그 몬스터가 **아군 vampiric thrall로 일어난다**(최대 HP로 부활, 주문을 쓰는 몬스터는 Vampiric Draining 추가). **동시에 1마리만** 가능하다. thrall의 유지 시간은 (미확인).
+- **Hypnotic gaze**: 몬스터가 플레이어를 처음 알아채고 외치려 할 때(서로 보이는 경우, natural·demonic·holy 몬스터) 3/4 확률로 Willpower 판정(위력 `70 + 75×(s−17)/8`). 실패하면 3~5턴 **Daze**, 성공해도 한 턴 분의 행동을 잃는다.
+- **Bat Swarm**(능력, MP 6, 즉시): 12~20턴 동안 **bat swarm form**이 되고 주변에 박쥐 구름을 만든다. 재사용은 경험치로 충전되며, 스킬이 높을수록 빨리 충전된다(필요량 `11000 / (100 + 100×(s−17)/8)`).
+  - bat swarm form: Tiny, Dex +5, EV +15 ~ +35, **이동 시간 절반**, 비행, **주문 시전 불가**, 맨손 공격 약함, 녹아듦 physical. 흡혈·Bloodcurse·Stealth·rN++은 그대로.
+- **약점**: 시야에 몬스터가 있으면 **HP가 재생되지 않는다**(inhibited regeneration). Doom과 Bane에서 더 느리게 회복한다(accursed).
+- 선한 신(Zin, The Shining One, Elyvilon) 신자가 사용하면 파문된다.
+
+### riddle talisman
+**Sphinx form** · 스킬 17~25 · 녹아듦: 무기, 방패, 몸통, 부츠, 투구, 장갑 (망토·바딩·장신구만 남음)
+
+- HP ×1.15, AC +7, **비행**, **Willpower +1단계**.
+- **망토와 바딩을 입을 수 있다**(원래 바딩을 못 입는 종족도. 방어구를 전혀 못 입는 종족은 제외).
+- **Airstrike attack**: 근접 공격이 명중하면 추가 피해 `(1 + 빈칸/2)d(1 + 5s/7)`(빈칸 = 대상 주변의 막히지 않은 칸 수, 최대 7). AC 적용.
+- **Hex mastery**: **Hexes 주문 실패율 ×2/3**. 또한 플레이어가 거는 **모든 Willpower 판정에서 대상의 Willpower −1단계**(코드상 Hexes에 한정되지 않음, `beam.cc` apply_willpower_bypass).
+- **Riddle compulsion**: 새로 몬스터를 발견하면(그 턴에 발견한 수를 n이라 할 때 `n/(n+5)` 확률, 유니크가 있으면 항상) 가장 지능이 높은 몬스터에게 수수께끼를 낸다. 외침과 같은 크기의 **소음**이 나고, 1/20 확률로 그 몬스터를 Vex(5~8턴) 또는 Confusion에 빠뜨린다.
+
+---
+
+## 7. 5등급
+
+### storm talisman
+**Storm form** · 스킬 23~27 · 녹아듦: physical
+
+| 항목 | 값 |
+|---|---|
+| AC / EV | +12 ~ +15 / **+20 ~ +27** |
+| 맨손 데미지 | 3 + (24 ~ 30) = **27~33, electrocution 브랜드**, 방패 손 펀치 가능 |
+| 저항 | rElec |
+| 성질 | nonliving, **insubstantial**(석화·그물/거미줄·Sticky Flame 등 면역) |
+| 비행 | 가능 |
+
+- **모든 근접 공격이 cleave**(주변 모든 적을 함께 공격).
+- **Blinkbolt**(능력, 비용 없음, 사거리 시야): 번개가 되어 목표까지 이동하며 경로의 대상에게 `1d(11 + 3p/5)` 피해(p = `s × 200/27`, 스킬 23 → 약 1d113, 27 → 1d131). 이후 **5~20턴 재사용 대기**. −Tele 등 순간이동 금지의 영향을 받는다.
+
+### talisman of death
+**Death form** · 스킬 **26~27** · 녹아듦: 없음
+
+- 성질 **undead**. 저항: rC+, **rN+++**, **Torment 면역**. **Willpower +1단계.**
+- 맨손 데미지 3 + 6 = 9, **draining 브랜드**.
+- **Vile attack**: 근접 공격으로 피해를 주면, nonliving이 아닌 대상에게 3~6턴 동안 **Slow**(Stasis 제외), **Weak**(공격 수단이 있으면), **Drain**(natural·plant만)을 건다.
+- **Siphon Essence**(능력, MP 20): **반경 2 안의 적대 몬스터 중 Torment 면역이 아닌 대상**의 **현재 HP를 절반**으로 만든다. 입힌 피해 합계와 `19 + 3s` 중 작은 값의 2/3만큼 HP 회복(최대 약 67). 이후 12~16턴 재사용 대기.
+- **포션을 마실 수 없다.** Doom과 Bane에서 더 느리게 회복한다(accursed).
+- Death's Door 상태에서는 변신할 수 없다. 선한 신 신자가 사용하면 파문되고, 이 형태로는 선한 신에 입교할 수 없다.
+
+---
+
+## 8. 생성 (간략)
 - **바닥 무작위 생성**: 무작위 아이템 종류 중 탈리스만의 가중치는 25 / 1661(약 1.5%).
 - **등급 선택**: 아이템 레벨(최대 35)에 따라 등급을 고른 뒤, 그 등급 안에서 균등하게 고른다.
 

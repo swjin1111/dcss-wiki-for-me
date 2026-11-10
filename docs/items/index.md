@@ -18,7 +18,7 @@
 | 완드·발동 아이템 (Evoker) | [wands-evokers.md](wands-evokers.md) | 작성 |
 | 반지·목걸이 (Jewellery) | [jewellery.md](jewellery.md) | 작성 |
 | 지팡이 (Magical Staves) | [staves.md](staves.md) | 작성 |
-| 탈리스만 | [talismans.md](talismans.md) | 작성 중 (공통 규칙, 1~3등급) |
+| 탈리스만 (변신 형태) | [talismans.md](talismans.md) | 작성 |
 | 특수 아이템 (룬, Gem, Orb of Zot, Gizmo, Bauble) | `special-items.md` | 예정 |
 
 현재 버전에서 원거리 무기는 탄약을 쓰지 않는다. 화살·볼트·탄환 같은 탄약 아이템은 세이브 호환용으로만 남아 있고 생성되지 않는다.
